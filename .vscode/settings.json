@@ -1,0 +1,10 @@
+{
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "typescript.validate.enable": false,
+  "css.customData": [".vscode/css_custom_data.json"],  // Optional: For custom rules
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}

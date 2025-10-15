@@ -1,0 +1,242 @@
+{
+  "hero_title": "Asegure el Mejor Financiamiento para Su Pequeña Empresa",
+  "hero_subtitle": "Desde 2016, Core Business Capital ha ayudado a miles a obtener Préstamos SBA, Préstamos a Plazo y más en todos los 50 estados.",
+  "cta_apply": "Aplicar Ahora",
+  "services": {
+    "title": "Nuestros Programas de Financiamiento",
+    "sba": "Préstamos SBA de EE.UU.",
+    "term": "Préstamos a Plazo",
+    "equipment": "Financiamiento de Equipos",
+    "line": "Líneas de Crédito",
+    "working": "Préstamos de Capital de Trabajo",
+    "payroll": "Financiamiento de Nómina",
+    "cash": "Adelantos de Efectivo para Negocios",
+    "invoice": "Financiamiento de Facturas",
+    "sba_desc": "Nuestros préstamos de la SBA de EE. UU. ofrecen financiamiento a largo plazo respaldado por el gobierno de hasta 5 millones de dólares para pequeñas empresas de Colorado y de todo el país, con tasas competitivas desde 2016. Ideales para necesidades de expansión, bienes raíces o capital de trabajo..",
+    "term_desc": "Nuestros préstamos a plazo ofrecen plazos de 1 a 4 años por un monto de $25,000 a $500,000 para el crecimiento de pequeñas empresas, capital de trabajo o consolidación de deudas. Proceso rápido y sencillo para todos los solicitantes.",
+    "equipment_desc": "Financiamiento seguro de equipos o arrendamiento de equipos adaptado a las pequeñas empresas de Denver, Colorado, y los 50 estados, lo que le permite adquirir maquinaria esencial sin costos iniciales, con plazos de hasta 84 meses y tasas competitivas bajas.",
+    "line_desc": "Acceda a líneas de crédito renovables de hasta 250 000 dólares para cubrir las necesidades continuas de capital circulante, perfectas para las fluctuaciones estacionales o los gastos inesperados de las pequeñas empresas de todo el país, que se pueden utilizar según sea necesario y están disponibles en Colorado y en casi todos los 50 estados.",
+    "working_desc": "Nuestros préstamos para capital de trabajo proporcionan inyecciones rápidas de efectivo de entre 10 000 y 1 000 000 de dólares para cubrir las operaciones diarias, el inventario o la nómina de las pequeñas empresas de Colorado y los 50 estados de EE. UU., con una documentación mínima.",
+    "payroll_desc": "Garantice el buen funcionamiento de su negocio con la financiación de nóminas de hasta 500 000 dólares con un interés semanal de tan solo el 1,5 %, lo que ayuda a las pequeñas empresas a cumplir con los plazos de pago de nóminas sin estrés, disponible en todo el país.",
+    "cash_desc": "Obtenga Adelantos de Efectivo para Negocios inmediatos basados en ventas diarias de tarjetas de crédito o ingresos, hasta $500,000, para necesidades urgentes como marketing o reparaciones, sin reembolsos fijos—ideal para pequeñas empresas en Colorado y más allá.",
+    "invoice_desc": "Desbloquee efectivo de facturas pendientes con nuestro programa de Financiamiento de Facturas, factorizando hasta el 90% del valor de la factura instantáneamente para pequeñas empresas esperando pagos, atendiendo clientes en todos los 50 estados desde 2016."
+  },
+  "about": {
+    "title": "Sobre Nosotros",
+    "since": "En el negocio desde 2016",
+    "rating_google": "5.0 Estrellas en Perfil de Negocios de Google",
+    "rating_bbb": "Calificación A+ en BBB",
+    "experience": "Servicio de alta gama para préstamos de $5,000 a $5,000,000",
+    "states": "Atendiendo a los 50 estados desde nuestra base en Colorado"
+  },
+  "reviews": {
+    "title": "Reseñas de Clientes",
+    "subtitle": "Vea lo que nuestros clientes satisfechos dicen sobre nuestras soluciones de financiamiento empresarial",
+    "cta_text": "¿Listo para unirse a nuestros clientes satisfechos?",
+    "cta_button": "Comenzar Hoy"
+  },
+  "apply_ready": "¿Listo para Asegurar Financiamiento?",
+  "apply_desc": "Solicite ahora los mejores términos en Préstamos SBA, Adelantos de Efectivo y más. Nuestro proceso es rápido, seguro y adaptado a su negocio.",
+  "apply_benefits": {
+    "quick": "Pre-aprobación rápida en minutos",
+    "nocredit": "Sin consulta de crédito dura",
+    "expert": "Guía experta de Nicholas en nicholas@corebusinesscapital.com",
+    "states": "Atendiendo a los 50 estados desde 2016"
+  },
+  "footer": {
+    "copyright": "© 2025 Core Business Capital. Atendiendo a los 50 estados.",
+    "email": "nicholas@corebusinesscapital.com",
+    "privacy": "Política de Privacidad"
+  },
+  "serviceDetails": {
+    "sectionHeaders": {
+      "qualifications_title": "Calificaciones Mínimas",
+      "documentation_title": "Documentación Requerida",
+      "benefits_title": "Beneficios del Programa"
+    },
+    "cta": {
+      "ready_title": "¿Listo para Comenzar?",
+      "contact_text": "Contacte a nuestros expertos para obtener orientación personalizada sobre {service} y otras opciones de financiamiento.",
+      "apply_button": "Aplicar Ahora",
+      "view_all_button": "Ver Todos los Servicios"
+    },
+    "sba": {
+      "qualifications": [
+        "Negocio en funcionamiento durante al menos dos años",
+        "Ingresos anuales de 25 000 dólares o más",
+        "Puntuación de crédito personal de 700 o más",
+        "Aportación de capital propio del propietario del 10 % para adquisiciones o bienes inmuebles",
+        "Ubicado en los Estados Unidos",
+        "El propietario debe tener estatus legal para trabajar en EE. UU."
+      ],
+      "paperwork": [
+        "Declaraciones de impuestos de la empresa (2 años)",
+        "Declaraciones de impuestos personales (2 años)",
+        "Estados financieros intermedios (cuenta de resultados y balance)",
+        "Extractos bancarios de la empresa (3 meses)",
+        "Estado financiero personal",
+        "Uso de los fondos",
+        "Lista de activos"
+      ],
+      "benefits": [
+        "Respaldado por la plena confianza y el crédito del gobierno de los Estados Unidos",
+        "Tasas de interés competitivas (a partir de la tasa preferencial + 2-4 %",
+        "Préstamos de hasta 5 millones de dólares",
+        "Aprobaciones a largo plazo con pagos mensuales bajos",
+        "Requisitos de pago inicial más bajos",
+        "Asesoramiento experto de la SBA durante todo el proceso"
+      ]
+    },
+    "term": {
+      "qualifications": [
+        "Negocio en funcionamiento durante al menos un año",
+        "Ingresos anuales de 120 000 dólares o más",
+        "Puntuación de crédito personal de 660 o más",
+        "Historial de flujo de caja positivo",
+        "Operaciones comerciales con sede en EE. UU.",
+        "Saldo promedio de libro mayor bancario positivo durante 3 meses recientes"
+      ],
+      "paperwork": [
+        "Para 100 000 dólares o menos: solo extractos bancarios (3 meses)",
+        "Para más de 100 000 dólares, incluir:",
+        "Declaraciones de impuestos de la empresa (2 años)",
+        "Declaraciones de impuestos personales (2 años)",
+        "Últimas cuentas de resultados",
+        "Último balance general"
+      ],
+      "benefits": [
+        "Condiciones y tasas preferenciales con menos papeleo",
+        "Préstamos de 10 000 a 500 000 dólares",
+        "Financiación en solo 2-3 días",
+        "Plazos de pago flexibles de hasta 5 años",
+        "Sin penalizaciones por pago anticipado",
+        "Asistencia personalizada de especialistas en préstamos"
+      ]
+    },
+    "equipment": {
+      "qualifications": [
+        "Negocio en funcionamiento durante al menos 5 meses",
+        "Ingresos anuales de 75 000 dólares o más",
+        "Puntuación de crédito personal de 600 o más",
+        "El equipo debe ser de uso comercial",
+        "Se admite equipo nuevo o usado"
+      ],
+      "paperwork": [
+        "Presupuesto o factura del equipo",
+        "Extractos bancarios (3 meses)"
+      ],
+      "benefits": [
+        "Financiación de hasta el 100 % del costo del equipo",
+        "Plazos de hasta 84 meses",
+        "El equipo sirve como garantía",
+        "Conserva el capital circulante",
+        "Ventajas fiscales y amortización",
+        "Aprobación y financiamiento rápidos"
+      ]
+    },
+    "working": {
+      "qualifications": [
+        "Negocio en funcionamiento durante al menos 6 meses",
+        "Ingresos mensuales de 15 000 dólares o más",
+        "Puntuación de crédito personal de 580 o más",
+        "Sin días negativos excesivos ni NSF",
+        "Sin quiebras recientes"
+      ],
+      "paperwork": [
+        "Extractos bancarios (3-6 meses)",
+        "Solicitud rápida de una página",
+        "Identificación oficial y cheque comercial anulado"
+      ],
+      "benefits": [
+        "Financiamiento rápido en 1-3 días hábiles",
+        "Préstamos de 15,000 a 1,000,000 de dólares",
+        "Soluciones puente a corto plazo de 6 a 24 meses",
+        "Mínima documentación requerida",
+        "Uso flexible de los fondos",
+        "Sin necesidad de garantías"
+      ]
+    },
+    "line": {
+      "qualifications": [
+        "Negocio en funcionamiento durante al menos un año",
+        "Ingresos anuales de 300 000 dólares o más",
+        "Puntuación de crédito personal de 620 o más",
+        "Sólido saldo medio en el libro mayor del banco"
+      ],
+      "paperwork": [
+        "Estados de cuenta bancarios (3 meses)"
+      ],
+      "benefits": [
+        "Crédito renovable de hasta 250 000 dólares",
+        "Solo paga intereses por los fondos retirados",
+        "Calendario de retiros flexible",
+        "Línea de crédito renovable",
+        "Tipos de interés competitivos",
+        "Gestión de cuentas en línea"
+      ]
+    },
+    "invoice": {
+      "qualifications": [
+        "Negocio B2B con clientes comerciales",
+        "Facturas de clientes solventes",
+        "Relaciones con clientes verificables"
+      ],
+      "paperwork": [
+        "Facturas y extractos de muestra",
+        "Solicitud de una página",
+        "Antigüedad de las cuentas por cobrar",
+        "Extractos bancarios (3 meses)",
+        "Contratos con clientes u órdenes de compra"
+      ],
+      "benefits": [
+        "Mejora inmediata del flujo de caja",
+        "Factura hasta el 90 % del valor de la factura",
+        "Gestión de cobros",
+        "Impulsa el crecimiento de tu negocio sin endeudarte"
+      ]
+    },
+    "payroll": {
+      "qualifications": [
+        "Nómina de empleados constante",
+        "Empresa en funcionamiento durante más de seis meses",
+        "Sin deuda a corto plazo excesiva (2-3 puestos)",
+        "Sin problemas con los impuestos sobre la nómina",
+        "Gestión profesional de la nómina"
+      ],
+      "paperwork": [
+        "Registros de nómina (informes más recientes)",
+        "Extractos bancarios (6 meses)"
+      ],
+      "benefits": [
+        "Cumplir con las obligaciones salariales a tiempo",
+        "Anticipos sobre cobros futuros",
+        "Preservar las relaciones comerciales",
+        "Mantener la confianza de los empleados",
+        "Opciones de pago flexibles",
+        "Asesoramiento experto en materia de nóminas"
+      ]
+    },
+    "cash": {
+      "qualifications": [
+        "Negocio operativo durante más de tres meses",
+        "Ventas brutas mensuales de 15 000 dólares o más",
+        "Volumen de ventas constante",
+        "Sin días negativos excesivos ni transacciones sin fondos"
+      ],
+      "paperwork": [
+        "Extractos bancarios (3 meses)",
+        "Solicitud comercial",
+        "Extractos de procesamiento de tarjetas de crédito (1 mes, si procede)",
+        "Cheque comercial anulado",
+        "Identificación válida"
+      ],
+      "benefits": [
+        "Financiamiento rápido en 24-48 horas",
+        "Anticipos de hasta $1,000,000",
+        "Sin garantía personal",
+        "Sin penalizaciones por pago anticipado",
+        "Utilice los fondos para cualquier fin comercial"
+      ]
+    }
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "hero_title": "Secure the Best Funding for Your Small Business",
+  "hero_subtitle": "Since 2016, Core Business Capital has helped thousands secure SBA Loans, Term Loans, and more across all 50 states.",
+  "cta_apply": "Apply Now",
+  "services": {
+    "title": "Our Financing Programs",
+    "sba": "U.S. SBA Loans",
+    "term": "Term Loans",
+    "equipment": "Equipment Financing",
+    "line": "Lines of Credit",
+    "working": "Working Capital Loans",
+    "payroll": "Payroll Financing",
+    "cash": "Business Cash Advances",
+    "invoice": "Invoice Financing",
+    "sba_desc": "Our U.S. SBA Loans provide government-backed funding up to $5 million for small businesses in Colorado and nationwide, with competitive rates and flexible terms since 2016. Ideal for expansion, real estate, or working capital needs.",
+    "term_desc": "Our Term Loans offer fixed-rate financing from $10,000 to $500,000 for small business growth, equipment purchase, or debt consolidation, available to businesses across all 50 states with fast approval processes.",
+    "equipment_desc": "Secure Equipment Financing tailored for small businesses in Denver, Colorado, and beyond, allowing you to acquire essential machinery without upfront costs, with terms up to 84 months and rates starting low.",
+    "line_desc": "Access revolving Lines of Credit up to $250,000 for ongoing working capital needs, perfect for seasonal fluctuations or unexpected expenses for small businesses nationwide, drawn as needed since our founding in 2016.",
+    "working_desc": "Our Working Capital Loans provide quick cash infusions from $5,000 to $100,000 to cover day-to-day operations, inventory, or payroll for small businesses in Colorado and all US states, with minimal documentation.",
+    "payroll_desc": "Ensure smooth operations with Payroll Financing solutions that advance funds against future receivables, helping small businesses meet payroll deadlines without stress, available nationwide with our expert guidance.",
+    "cash_desc": "Get immediate Business Cash Advances based on daily credit card sales or revenue, up to $500,000, for urgent needs like marketing or repairs, with no fixed repayments—ideal for Colorado small businesses and beyond.",
+    "invoice_desc": "Unlock cash from unpaid invoices with our Invoice Financing program, factoring up to 90% of invoice value instantly for small businesses waiting on payments, serving clients in all 50 states since 2016."
+  },
+  "about": {
+    "title": "About Us",
+    "since": "In business since 2016",
+    "rating_google": "5.0 Stars on Google Business Profile",
+    "rating_bbb": "A+ Rating on BBB",
+    "experience": "High-end service for loans from $5,000 to $5,000,000",
+    "states": "Serving all 50 states from our Colorado base"
+  },
+  "reviews": {
+    "title": "Customer Reviews",
+    "subtitle": "See what our satisfied clients say about our business funding solutions",
+    "cta_text": "Ready to join our satisfied customers?",
+    "cta_button": "Get Started Today"
+  },
+  "apply_ready": "Ready to Secure Funding?",
+  "apply_desc": "Apply now for the best terms on SBA Loans, Cash Advances, and more. Our process is fast, secure, and tailored for your business.",
+  "apply_benefits": {
+    "quick": "Quick pre-approval in minutes",
+    "nocredit": "No hard credit pull",
+    "expert": "Expert guidance from Nicholas at nicholas@corebusinesscapital.com",
+    "states": "Serving all 50 states since 2016"
+  },
+  "footer": {
+    "copyright": "© 2025 Core Business Capital. Serving all 50 states.",
+    "email": "nicholas@corebusinesscapital.com",
+    "privacy": "Privacy Policy"
+  },
+  "serviceDetails": {
+    "sectionHeaders": {
+      "qualifications_title": "Minimum Qualifications",
+      "documentation_title": "Required Documentation",
+      "benefits_title": "Program Benefits"
+    },
+    "cta": {
+      "ready_title": "Ready to Get Started?",
+      "contact_text": "Contact our experts for personalized guidance on {service} and other financing options.",
+      "apply_button": "Apply Now",
+      "view_all_button": "View All Services"
+    },
+    "sba": {
+      "qualifications": [
+        "Business operational for at least 2 years",
+        "Annual revenue of $25,000 or more",
+        "Personal credit score of 700+",
+        "Owner equity injection of 10% for acquisitions or real estate",
+        "Located in the United States",
+        "Owner must have legal status to work in the US"
+      ],
+      "paperwork": [
+        "Business tax returns (2 years)",
+        "Personal tax returns (2 years)",
+        "Interim financial statements (P&L and Balance Sheet)",
+        "Business bank statements (3 months)",
+        "Personal financial statement",
+        "Use of funds",
+        "Asset List"
+      ],
+      "benefits": [
+        "Backed by the full faith and credit of the U.S. government",
+        "Competitive interest rates (Starting @ Prime + 2-4%)",
+        "Loan amounts up to $5 million",
+        "Long term approvals with low monthly payments",
+        "Lower down payment requirements",
+        "Expert SBA guidance throughout process"
+      ]
+    },
+    "term": {
+      "qualifications": [
+        "Business operational for at least 1 year",
+        "Annual revenue of $120,000 or more",
+        "Personal credit score of 660+",
+        "Positive cash flow history",
+        "US-based business operations",
+        "Positive bank ledger balance over 3 recent months"
+      ],
+      "paperwork": [
+        "For $100,000 or less: only Bank statements (3 months)",
+        "For $100,000+ include:",
+        "Business tax returns (2 years)",
+        "Personal tax returns (2 years)",
+        "Most recent Profit & loss statements",
+        "Most recent Balance sheet"
+      
+      ],
+      "benefits": [
+        "Premium terms and rates with reduced paperowrk",
+        "Loan amounts from $10,000 to $500,000",
+        "Fundedin just 2-3 days",
+        "Flexible repayment terms up to 5 years",
+        "No prepayment penalties",
+        "Dedicated loan specialist support"
+      ]
+    },
+    "equipment": {
+      "qualifications": [
+        "Business operational for at least 5 months",
+        "Annual revenue of $75,000 or more",
+        "Personal credit score of 600+",
+        "Equipment must be business-use",
+        "New or used equipment eligible"
+      ],
+      "paperwork": [
+        "Equipment quote or invoice",
+        "Bank statements (3 months)"
+      ],
+      "benefits": [
+        "Finance up to 100% of equipment cost",
+        "Terms up to 84 months",
+        "Equipment serves as collateral",
+        "Preserve working capital",
+        "Tax advantages and depreciation",
+        "Quick approval and funding"
+      ]
+    },
+    "working": {
+      "qualifications": [
+        "Business operational for at least 6 months",
+        "Monthly revenue of $15,000 or more",
+        "Personal credit score of 580+",
+        "No excessive negative days or NSF",
+        "No recent bankruptcies"
+      ],
+      "paperwork": [
+        "Bank statements (3-6 months)",
+        "Quick 1-page application",
+        "Government ID and voided business check"
+      ],
+      "benefits": [
+        "Quick funding in 1-3 business days",
+        "Loan amounts from $15,000 to $1,000,000",
+        "Short-term bridge solutions for 6-24 months",
+        "Minimal documentation required",
+        "Flexible use of funds",
+        "No collateral required"
+      ]
+    },
+    "line": {
+      "qualifications": [
+        "Business operational for at least 1 year",
+        "Annual revenue of $300,000 or more",
+        "Personal credit score of 620+",
+        "Strong average bank ledger balance"
+      ],
+      "paperwork": [
+        "Bank statements (3 months)"
+      ],
+      "benefits": [
+        "Revolving credit up to $250,000",
+        "Only pay interest on funds drawn",
+        "Flexible draw schedule",
+        "Renewable credit facility",
+        "Competitive interest rates",
+        "Online account management"
+      ]
+    },
+    "invoice": {
+      "qualifications": [
+        "B2B business with commercial clients",
+        "Invoices from creditworthy customers",
+        "Verifiable customer relationships"
+      ],
+      "paperwork": [
+        "Sample invoices and statements",
+        "1-page application",
+        "Accounts receivable aging",
+        "Bank statements (3 months)",
+        "Customer contracts or purchase orders"
+      ],
+      "benefits": [
+        "Immediate cash flow improvement",
+        "Factor up to 90% of invoice value",
+        "Collections management",
+        "Fuel business growth without debt"
+      ]
+    },
+    "payroll": {
+      "qualifications": [
+        "Consistent employee payroll",
+        "Business operational for 6+ months",
+        "No excessive short term debt (2-3 positions)",
+        "No payroll tax issues",
+        "Professional payroll management"
+      ],
+      "paperwork": [
+        "Payroll records (most recent reports)",
+        "Bank statements (6 months)"
+      ],
+      "benefits": [
+        "Meet payroll obligations on time",
+        "Advance against future receivables",
+        "Preserve business relationships",
+        "Maintain employee confidence",
+        "Flexible repayment options",
+        "Expert payroll guidance"
+      ]
+    },
+    "cash": {
+      "qualifications": [
+        "Business operational for 3+ months",
+        "Monthly gross sales of $15,000 or more",
+        "Consistent sales volume",
+        "No excessive negative days or NSF transactions"
+      ],
+      "paperwork": [
+        "Bank statements (3 months)",
+        "Business application",
+        "Credit card processing statements (1 month if applicatbble)",
+        "Voided business check",
+        "Valid Identification"
+      ],
+      "benefits": [
+        "Fast funding in 24-48 hours",
+        "Advances up to $1,000,000",
+        "No personal guaraentee",
+        "No early payoff penalties",
+        "Use funds for any business purpose"
+      ]
+    }
+  }
+}
