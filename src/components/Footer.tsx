@@ -73,7 +73,7 @@ export default function Footer({ dict }: FooterProps) {
             <h5 className="text-sm font-semibold mb-3">Follow Us</h5>
             <div className="flex space-x-4">
               <a 
-                href="https://twitter.com/corebusinesscap" 
+                href="https://x.com/corebusinesscap" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-[#3d2914] hover:text-[#8b5a00] transition-colors duration-200"
@@ -82,7 +82,7 @@ export default function Footer({ dict }: FooterProps) {
                 <FaTwitter size={20} />
               </a>
               <a 
-                href="https://instagram.com/corebusinesscap" 
+                href="https://www.instagram.com/corebusinesscapital" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-[#3d2914] hover:text-[#8b5a00] transition-colors duration-200"
@@ -91,7 +91,7 @@ export default function Footer({ dict }: FooterProps) {
                 <FaInstagram size={20} />
               </a>
               <a 
-                href="https://linkedin.com/company/corebusinesscap" 
+                href="https://www.linkedin.com/company/core-business-capital/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-[#3d2914] hover:text-[#8b5a00] transition-colors duration-200"
@@ -100,7 +100,7 @@ export default function Footer({ dict }: FooterProps) {
                 <FaLinkedin size={20} />
               </a>
               <a 
-                href="https://yelp.com/biz/core-business-capital" 
+                href="https://yelp.to/eAt4ijEHNi" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-[#3d2914] hover:text-[#8b5a00] transition-colors duration-200"
