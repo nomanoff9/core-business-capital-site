@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://corebusinesscapital.com
+
+# Sitemaps
+Sitemap: https://corebusinesscapital.com/sitemap.xml

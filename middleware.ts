@@ -13,14 +13,21 @@ function getLocale(request: NextRequest): string {
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  
+  // Handle root path explicitly
+  if (pathname === '/') {
+    request.nextUrl.pathname = '/en';
+    return NextResponse.redirect(request.nextUrl);
+  }
+  
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
   if (pathnameHasLocale) return NextResponse.next();
 
-  // Always redirect root to English locale (you can change this to use getLocale(request) for browser detection)
-  const locale = 'en'; // Force English as default
+  // Redirect to default locale for all other paths
+  const locale = defaultLocale;
   request.nextUrl.pathname = `/${locale}${pathname}`;
   return NextResponse.redirect(request.nextUrl);
 }
