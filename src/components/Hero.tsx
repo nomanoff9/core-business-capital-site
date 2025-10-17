@@ -80,18 +80,27 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
 
           {/* Column 2: Hero Image - Spans both rows and fills column */}
           <div className="row-span-2 flex items-center justify-center" style={{ padding: '10px' }}>
-            <div className="relative w-full h-full min-h-[400px] rounded-2xl overflow-hidden shadow-2xl">
-              <NextImage
-                src="/images/hero-bg.jpg"
-                alt="Business professionals discussing funding solutions - Core Business Capital team meeting"
-                fill
-                sizes="(max-width: 480px) 100vw, 50vw"
-                className="object-cover"
-                priority
-                quality={60}
-                fetchPriority="high"
-                loading="eager"
-              />
+            <div className="relative w-full h-full flex items-center justify-center">
+              {/* Hero Image Container fills the column */}
+              <div className="relative w-full h-full min-h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+                <NextImage
+                  src="/images/hero-bg.jpg"
+                  alt="Business professionals discussing funding solutions - Core Business Capital team meeting"
+                  fill
+                  sizes="(max-width: 480px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                  quality={60}
+                  fetchPriority="high"
+                  loading="eager"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+                {/* Optimized fallback content */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-200 to-yellow-200 opacity-0" role="img" aria-label="Business funding background">
+                </div>
+              </div>
             </div>
           </div>
 
@@ -179,7 +188,13 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
                   quality={60}
                   fetchPriority="high"
                   loading="eager"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
+                {/* Optimized fallback content */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-200 to-yellow-200 opacity-0" role="img" aria-label="Business funding background">
+                </div>
               </div>
             </div>
           </div>
