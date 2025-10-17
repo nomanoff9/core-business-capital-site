@@ -53,7 +53,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
       />
 
       {/* Responsive Grid Container */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 min-[480px]:pt-8 pb-16 sm:py-16">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 min-[480px]:pt-8 pb-8 min-[480px]:pb-16 sm:py-16">
         
         {/* Desktop/Tablet Layout: 2x2 Grid (480px and above) */}
         <div className="hidden min-[480px]:grid grid-cols-2 grid-rows-2 gap-8 min-h-[70vh]">
@@ -128,14 +128,14 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           </div>
         </div>
 
-        {/* Mobile Layout: Single Column (Below 480px) */}
-        <div className="block min-[480px]:hidden space-y-8">
+        {/* Mobile Layout: Single Column (Below 480px) - Optimized for above-the-fold */}
+        <div className="block min-[480px]:hidden space-y-4">
           
-          {/* Hero Statement */}
-          <div className="text-center space-y-6">
+          {/* Hero Statement - Compact */}
+          <div className="text-center space-y-3">
             <h1 
-              className="text-3xl font-bold leading-tight"
-              style={{ color: '#ffffff', fontSize: '1.875rem' }}
+              className="text-2xl font-bold leading-tight"
+              style={{ color: '#ffffff', fontSize: '1.5rem', lineHeight: '1.3' }}
               itemScope
               itemType="https://schema.org/Organization"
             >
@@ -143,41 +143,18 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
             </h1>
 
             <p
-              className="text-base leading-relaxed"
-              style={{ color: '#ffffff', opacity: 0.9 }}
+              className="text-sm leading-snug px-2"
+              style={{ color: '#ffffff', opacity: 0.9, lineHeight: '1.4' }}
               itemProp="description"
             >
               {heroSubtitle}
             </p>
           </div>
 
-          {/* Apply Now Button */}
-          <div className="flex justify-center" style={{ marginBottom: '4px' }}>
-            <a 
-              href="https://app.corebusinesscapital.com/en/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="no-underline"
-              aria-label="Apply for business funding - opens in new tab"
-              itemProp="url"
-            >
-              <div
-                className="min-w-[160px] h-[60px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4 text-center"
-                style={ctaButtonStyles}
-                onMouseEnter={(e) => handleCtaHover(e, true)}
-                onMouseLeave={(e) => handleCtaHover(e, false)}
-                role="button"
-                tabIndex={0}
-              >
-                {ctaText}
-              </div>
-            </a>
-          </div>
-
-          {/* Hero Image Centered */}
+          {/* Hero Image Centered - Compact aspect ratio */}
           <div className="flex justify-center">
             <div className="relative w-full max-w-sm">
-              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden shadow-xl">
                 <NextImage
                   src="/images/hero-bg.jpg"
                   alt="Business professionals discussing funding solutions - Core Business Capital team meeting"
@@ -197,6 +174,29 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Apply Now Button - Compact */}
+          <div className="flex justify-center pt-2">
+            <a 
+              href="https://app.corebusinesscapital.com/en/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="no-underline"
+              aria-label="Apply for business funding - opens in new tab"
+              itemProp="url"
+            >
+              <div
+                className="min-w-[140px] h-[50px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4 text-center text-sm"
+                style={ctaButtonStyles}
+                onMouseEnter={(e) => handleCtaHover(e, true)}
+                onMouseLeave={(e) => handleCtaHover(e, false)}
+                role="button"
+                tabIndex={0}
+              >
+                {ctaText}
+              </div>
+            </a>
           </div>
 
         </div>
