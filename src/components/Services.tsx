@@ -101,24 +101,23 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
           </motion.h2>
 
           {/* Desktop Layout: 2 rows x 4 columns (768px and above) */}
-          <div className="hidden min-[768px]:grid grid-cols-4 grid-rows-2 gap-6 p-1" role="list" aria-label="Business funding services">
+          <ul className="hidden min-[768px]:grid grid-cols-4 grid-rows-2 gap-6 p-1 list-none" aria-label="Business funding services">
             {serviceKeys.map((service, i) => (
-              <Link 
-                key={service.key}
-                href={`/${lang}/services/${service.key}`}
-                className="block h-full no-underline"
-              >
-                <motion.article
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className={cardStyles}
-                  style={cardPadding}
-                  role="listitem"
-                  itemScope
-                  itemType="https://schema.org/Service"
-                  aria-labelledby={`service-title-${service.key}-desktop`}
+              <li key={service.key}>
+                <Link 
+                  href={`/${lang}/services/${service.key}`}
+                  className="block h-full no-underline"
                 >
+                  <motion.article
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                    className={cardStyles}
+                    style={cardPadding}
+                    itemScope
+                    itemType="https://schema.org/Service"
+                    aria-labelledby={`service-title-${service.key}-desktop`}
+                  >
                   {/* Top Row: Image */}
                   <div className="flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-yellow-100 group-hover:to-orange-100 transition-all duration-300 h-24">
                     <div className="w-12 h-12">
@@ -154,28 +153,28 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
                   </div>
                 </motion.article>
               </Link>
+              </li>
             ))}
-          </div>
+          </ul>
 
           {/* Tablet Layout: 4 rows x 2 columns (480px to 767px) */}
-          <div className="hidden min-[480px]:max-[767px]:grid grid-cols-2 gap-6 p-1" role="list" aria-label="Business funding services">
+          <ul className="hidden min-[480px]:max-[767px]:grid grid-cols-2 gap-6 p-1 list-none" aria-label="Business funding services">
               {serviceKeys.map((service, i) => (
-                <Link 
-                  key={service.key}
-                  href={`/${lang}/services/${service.key}`}
-                  className="block h-full no-underline"
-                >
-                  <motion.article
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.5 }}
-                    className={cardStyles}
-                    style={cardPadding}
-                    role="listitem"
-                    itemScope
-                    itemType="https://schema.org/Service"
-                    aria-labelledby={`service-title-${service.key}-tablet`}
+                <li key={service.key}>
+                  <Link 
+                    href={`/${lang}/services/${service.key}`}
+                    className="block h-full no-underline"
                   >
+                    <motion.article
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.1, duration: 0.5 }}
+                      className={cardStyles}
+                      style={cardPadding}
+                      itemScope
+                      itemType="https://schema.org/Service"
+                      aria-labelledby={`service-title-${service.key}-tablet`}
+                    >
                     {/* Top Row: Image */}
                     <div className="flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-yellow-100 group-hover:to-orange-100 transition-all duration-300 h-20">
                       <div className="w-10 h-10">
@@ -211,28 +210,28 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
                     </div>
                   </motion.article>
                 </Link>
+                </li>
               ))}
-          </div>
+          </ul>
 
           {/* Mobile Layout: Single column (Below 480px) */}
-          <div className="block min-[480px]:hidden space-y-6 p-1" role="list" aria-label="Business funding services">
+          <ul className="block min-[480px]:hidden space-y-6 p-1 list-none" aria-label="Business funding services">
             {serviceKeys.map((service, i) => (
-              <Link 
-                key={service.key}
-                href={`/${lang}/services/${service.key}`}
-                className="block no-underline"
-              >
-                <motion.article
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className={`${cardStyles} max-w-sm mx-auto`}
-                  style={cardPadding}
-                  role="listitem"
-                  itemScope
-                  itemType="https://schema.org/Service"
-                  aria-labelledby={`service-title-${service.key}-mobile`}
+              <li key={service.key}>
+                <Link 
+                  href={`/${lang}/services/${service.key}`}
+                  className="block no-underline"
                 >
+                  <motion.article
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                    className={`${cardStyles} max-w-sm mx-auto`}
+                    style={cardPadding}
+                    itemScope
+                    itemType="https://schema.org/Service"
+                    aria-labelledby={`service-title-${service.key}-mobile`}
+                  >
                   {/* Top Row: Image */}
                   <div className="flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-yellow-100 group-hover:to-orange-100 transition-all duration-300 h-16">
                     <div className="w-8 h-8">
@@ -268,8 +267,9 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
                   </div>
                 </motion.article>
               </Link>
+              </li>
             ))}
-          </div>
+          </ul>
 
         </div>
       </section>

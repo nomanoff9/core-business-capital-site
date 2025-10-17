@@ -34,7 +34,7 @@ export default function Footer({ dict }: FooterProps) {
 
         {/* Middle Column - Services Links */}
         <div>
-          <h4 className="text-lg font-semibold mb-4">Services</h4>
+          <h3 className="text-lg font-semibold mb-4">Services</h3>
           <ul className="space-y-2 text-sm">
             <li><Link href="/en/services/sba" className="hover:text-[#8b5a00] transition-colors duration-200">U.S. SBA Loans</Link></li>
             <li><Link href="/en/services/term" className="hover:text-[#8b5a00] transition-colors duration-200">Term Loans</Link></li>
@@ -49,7 +49,7 @@ export default function Footer({ dict }: FooterProps) {
 
         {/* Right Column - Contact and Social */}
         <div>
-          <h4 className="text-lg font-semibold mb-4">Contact & Social</h4>
+          <h3 className="text-lg font-semibold mb-4">Contact & Social</h3>
           <ul className="space-y-3 text-sm">
             <li>
               <a href="mailto:info@corebusinesscapital.com" className="hover:text-[#8b5a00] transition-colors duration-200">
@@ -70,7 +70,7 @@ export default function Footer({ dict }: FooterProps) {
           
           {/* Social Media Icons */}
           <div className="mt-6">
-            <h5 className="text-sm font-semibold mb-3">Follow Us</h5>
+            <h4 className="text-sm font-semibold mb-3">Follow Us</h4>
             <div className="flex space-x-4">
               <a 
                 href="https://x.com/corebusinesscap" 
