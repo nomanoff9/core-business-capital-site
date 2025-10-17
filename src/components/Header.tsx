@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import NextImage from 'next/image';
 import { FiSun, FiMoon } from 'react-icons/fi';
@@ -145,11 +144,8 @@ export default function Header() {
                 
                 {/* Dropdown Menu */}
                 {isServicesDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                  <div
+                    className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-fade-in"
                     style={{ backgroundColor: '#ffffff' }}
                   >
                     <div className="py-3">
@@ -164,7 +160,7 @@ export default function Header() {
                         </Link>
                       ))}
                     </div>
-                  </motion.div>
+                  </div>
                 )}
               </div>
 
@@ -221,10 +217,8 @@ export default function Header() {
         </div>
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="min-[990px]:hidden bg-white dark:bg-gray-900 px-4 py-4 shadow-sm border-t border-gray-100 dark:border-gray-800"
+          <div
+            className="min-[990px]:hidden bg-white dark:bg-gray-900 px-4 py-4 shadow-sm border-t border-gray-100 dark:border-gray-800 animate-fade-in"
             role="menu"
             aria-label="Mobile navigation menu"
           >
@@ -237,7 +231,7 @@ export default function Header() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
       </nav>
     </header>

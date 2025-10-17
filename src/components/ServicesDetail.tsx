@@ -1,5 +1,4 @@
 'use client';
-import { motion } from 'framer-motion';
 import NextImage from 'next/image';
 import Link from 'next/link';
 import { memo } from 'react';
@@ -95,10 +94,8 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         
         {/* Service Header with Icon */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16 sm:mb-20 lg:mb-24 border-t-8 border-b-8 border-transparent"
+        <div
+          className="text-center mb-16 sm:mb-20 lg:mb-24 border-t-8 border-b-8 border-transparent animate-fade-in"
         >
           <div className="flex items-center justify-center mb-6">
             <div className="w-12 h-12 bg-white rounded-lg shadow-lg p-2">
@@ -149,17 +146,14 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
               </div>
             </a>
           </div>
-        </motion.div>
+        </div>
 
         {/* Service Details Grid - Optimized Responsive Layout */}
         <div className="grid grid-cols-1 min-[990px]:grid-cols-2 gap-6 min-[990px]:gap-8 auto-rows-auto mt-16 sm:mt-20 lg:mt-24 border-t-8 border-transparent">
           
           {/* Row 1: Minimum Qualifications */}
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="bg-white rounded-xl shadow-lg p-6 min-[990px]:col-span-1"
+          <article 
+            className="bg-white rounded-xl shadow-lg p-6 min-[990px]:col-span-1 animate-fade-in-up"
             itemScope
             itemType="https://schema.org/PropertyValue"
           >
@@ -190,14 +184,10 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
                 );
               })}
             </ul>
-          </motion.article>
+          </article>
 
           {/* Desktop/Tablet: Image in Column 2, Rows 1-3 */}
-          <motion.aside
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-            className="hidden min-[990px]:block min-[990px]:row-span-3"
+          <aside className="hidden min-[990px]:block min-[990px]:row-span-3 animate-fade-in-up"
             aria-label={`${serviceName} visual details`}
           >
             <div className="sticky top-8 h-[calc(100vh-4rem)] bg-white rounded-2xl shadow-lg p-8 sm:p-10 lg:p-12">
@@ -216,14 +206,10 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
                 />
               </div>
             </div>
-          </motion.aside>
+          </aside>
 
           {/* Row 2: Required Documentation */}
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="bg-white rounded-xl shadow-lg p-6 min-[990px]:col-span-1"
+          <article className="bg-white rounded-xl shadow-lg p-6 min-[990px]:col-span-1 animate-fade-in-up"
             itemScope
             itemType="https://schema.org/PropertyValue"
           >
@@ -254,14 +240,10 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
                 );
               })}
             </ul>
-          </motion.article>
+          </article>
 
           {/* Row 3: Program Benefits */}
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="bg-white rounded-xl shadow-lg p-6 min-[990px]:col-span-1"
+          <article className="bg-white rounded-xl shadow-lg p-6 min-[990px]:col-span-1 animate-fade-in-up"
             itemScope
             itemType="https://schema.org/PropertyValue"
           >
@@ -292,14 +274,10 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
                 );
               })}
             </ul>
-          </motion.article>
+          </article>
 
           {/* Mobile: Image After All Content */}
-          <motion.aside
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="min-[990px]:hidden"
+          <aside className="min-[990px]:hidden animate-fade-in-up"
             aria-label={`${serviceName} visual details`}
           >
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
@@ -316,16 +294,13 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
                 itemProp="image"
               />
             </div>
-          </motion.aside>
+          </aside>
 
         </div>
 
         {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="text-center mt-12"
+        <div
+          className="text-center mt-12 animate-fade-in"
         >
           <h3 
             className="text-2xl font-bold mb-4"
@@ -364,7 +339,7 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
               {dict.serviceDetails.cta.view_all_button}
             </Link>
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>
@@ -372,3 +347,6 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
 });
 
 export default ServicesDetail;
+
+
+
