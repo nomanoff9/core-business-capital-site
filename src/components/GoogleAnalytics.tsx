@@ -7,7 +7,7 @@ export default function GoogleAnalytics({ measurementId }: { measurementId: stri
   const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    // Only load GA after user interaction or after 3 seconds of idle
+    // Only load GA after user interaction or after page is fully loaded
     const handleInteraction = () => {
       setShouldLoad(true);
       // Remove listeners once triggered
@@ -17,17 +17,30 @@ export default function GoogleAnalytics({ measurementId }: { measurementId: stri
       window.removeEventListener('click', handleInteraction);
     };
 
-    // Delay initial load to reduce impact
-    const timeout = setTimeout(() => setShouldLoad(true), 3000);
+    // Wait for page load complete + 2s idle before loading GA
+    // This ensures LCP and FCP are not impacted
+    let timeout: NodeJS.Timeout;
+    
+    const delayedLoad = () => {
+      timeout = setTimeout(() => setShouldLoad(true), 2000);
+    };
 
-    // Load on any user interaction (faster engagement)
+    // Wait for page to be fully loaded
+    if (document.readyState === 'complete') {
+      delayedLoad();
+    } else {
+      window.addEventListener('load', delayedLoad);
+    }
+
+    // Load immediately on any user interaction (faster engagement)
     window.addEventListener('scroll', handleInteraction, { passive: true, once: true });
     window.addEventListener('mousemove', handleInteraction, { passive: true, once: true });
     window.addEventListener('touchstart', handleInteraction, { passive: true, once: true });
     window.addEventListener('click', handleInteraction, { passive: true, once: true });
 
     return () => {
-      clearTimeout(timeout);
+      if (timeout) clearTimeout(timeout);
+      window.removeEventListener('load', delayedLoad);
       window.removeEventListener('scroll', handleInteraction);
       window.removeEventListener('mousemove', handleInteraction);
       window.removeEventListener('touchstart', handleInteraction);

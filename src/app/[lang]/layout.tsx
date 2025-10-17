@@ -4,7 +4,11 @@ import '../globals.css';
 import { notFound } from 'next/navigation';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap', // Ensure text remains visible during webfont load
+  preload: true,
+});
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'es' }];
