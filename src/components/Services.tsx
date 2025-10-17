@@ -37,7 +37,6 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
 
   // Common card styles for DRY principle
   const cardStyles = "bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group hover:bg-gradient-to-br hover:from-yellow-50 hover:to-orange-50 cursor-pointer";
-  const cardPadding = { padding: '4px' };
   const titleStyles = "text-lg font-bold text-center group-hover:text-orange-700 transition-colors duration-300";
   const descStyles = "text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300 text-center";
 
@@ -87,7 +86,7 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
         itemScope
         itemType="https://schema.org/Service"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <h2
             id="services-heading"
             className="text-3xl lg:text-4xl font-bold text-center mb-12 animate-fade-in"
@@ -107,7 +106,7 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
                 >
                   <article
                     className={`${cardStyles} animate-fade-in-up`}
-                    style={{ ...cardPadding, animationDelay: `${i * 100}ms` }}
+                    style={{ animationDelay: `${i * 100}ms` }}
                     itemScope
                     itemType="https://schema.org/Service"
                     aria-labelledby={`service-title-${service.key}-desktop`}
@@ -161,7 +160,7 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
                   >
                     <article
                       className={`${cardStyles} animate-fade-in-up`}
-                      style={{ ...cardPadding, animationDelay: `${i * 100}ms` }}
+                      style={{ animationDelay: `${i * 100}ms` }}
                       itemScope
                       itemType="https://schema.org/Service"
                       aria-labelledby={`service-title-${service.key}-tablet`}
@@ -215,7 +214,7 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
                 >
                   <article
                     className={`${cardStyles} max-w-sm mx-auto animate-fade-in-up`}
-                    style={{ ...cardPadding, animationDelay: `${i * 100}ms` }}
+                    style={{ animationDelay: `${i * 100}ms` }}
                     itemScope
                     itemType="https://schema.org/Service"
                     aria-labelledby={`service-title-${service.key}-mobile`}
