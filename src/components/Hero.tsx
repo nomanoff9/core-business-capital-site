@@ -62,7 +62,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           <div className="flex flex-col justify-center space-y-6" style={{ marginLeft: '8px' }}>
             <h1 
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
-              style={{ color: '#ffffff' }}
+              style={{ color: '#ffffff', fontSize: 'clamp(1.5rem, 5vw, 3.75rem)' }}
               itemScope
               itemType="https://schema.org/Organization"
             >
@@ -135,7 +135,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           <div className="text-center space-y-6">
             <h1 
               className="text-3xl font-bold leading-tight"
-              style={{ color: '#ffffff' }}
+              style={{ color: '#ffffff', fontSize: '1.875rem' }}
               itemScope
               itemType="https://schema.org/Organization"
             >

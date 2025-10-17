@@ -117,7 +117,7 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
           <h1 
             id="service-detail-heading"
             className="text-4xl lg:text-5xl font-bold mb-4"
-            style={{ color: '#000000' }}
+            style={{ color: '#000000', fontSize: 'clamp(2.25rem, 4vw, 3rem)' }}
             itemProp="name"
           >
             {serviceName}
