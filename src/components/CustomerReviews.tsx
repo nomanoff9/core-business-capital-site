@@ -115,7 +115,8 @@ export default function CustomerReviews({ dict, className = '' }: CustomerReview
                   fill
                   sizes="625px"
                   className="object-contain"
-                  priority={index < 4}
+                  loading="lazy"
+                  quality={75}
                   onError={(e) => {
                     // Fallback for missing images
                     e.currentTarget.style.display = 'none';

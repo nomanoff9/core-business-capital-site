@@ -73,6 +73,10 @@ export default async function LocaleLayout({
   }
   return (
     <html lang={lang}>
+      <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      </head>
       <body className={inter.className}>
         <GoogleAnalytics measurementId="G-QVMLEDCCHV" />
         {children}
