@@ -1,5 +1,4 @@
 'use client';
-import { motion } from 'framer-motion';
 import Script from 'next/script';
 import NextImage from 'next/image';
 import Link from 'next/link';
@@ -89,16 +88,14 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
         itemType="https://schema.org/Service"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2
+          <h2
             id="services-heading"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-3xl lg:text-4xl font-bold text-center mb-12"
+            className="text-3xl lg:text-4xl font-bold text-center mb-12 animate-fade-in"
             style={{ color: '#000000', marginTop: '0px' }}
             itemProp="name"
           >
             {dict.services.title}
-          </motion.h2>
+          </h2>
 
           {/* Desktop Layout: 2 rows x 4 columns (768px and above) */}
           <ul className="hidden min-[768px]:grid grid-cols-4 grid-rows-2 gap-6 p-1 list-none" aria-label="Business funding services">
@@ -108,12 +105,9 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
                   href={`/${lang}/services/${service.key}`}
                   className="block h-full no-underline"
                 >
-                  <motion.article
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.5 }}
-                    className={cardStyles}
-                    style={cardPadding}
+                  <article
+                    className={`${cardStyles} animate-fade-in-up`}
+                    style={{ ...cardPadding, animationDelay: `${i * 100}ms` }}
                     itemScope
                     itemType="https://schema.org/Service"
                     aria-labelledby={`service-title-${service.key}-desktop`}
@@ -151,7 +145,7 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
                       {dict.services[`${service.key}_desc`]}
                     </p>
                   </div>
-                </motion.article>
+                </article>
               </Link>
               </li>
             ))}
@@ -165,12 +159,9 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
                     href={`/${lang}/services/${service.key}`}
                     className="block h-full no-underline"
                   >
-                    <motion.article
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.1, duration: 0.5 }}
-                      className={cardStyles}
-                      style={cardPadding}
+                    <article
+                      className={`${cardStyles} animate-fade-in-up`}
+                      style={{ ...cardPadding, animationDelay: `${i * 100}ms` }}
                       itemScope
                       itemType="https://schema.org/Service"
                       aria-labelledby={`service-title-${service.key}-tablet`}
@@ -208,7 +199,7 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
                         {dict.services[`${service.key}_desc`]}
                       </p>
                     </div>
-                  </motion.article>
+                  </article>
                 </Link>
                 </li>
               ))}
@@ -222,12 +213,9 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
                   href={`/${lang}/services/${service.key}`}
                   className="block no-underline"
                 >
-                  <motion.article
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1, duration: 0.5 }}
-                    className={`${cardStyles} max-w-sm mx-auto`}
-                    style={cardPadding}
+                  <article
+                    className={`${cardStyles} max-w-sm mx-auto animate-fade-in-up`}
+                    style={{ ...cardPadding, animationDelay: `${i * 100}ms` }}
                     itemScope
                     itemType="https://schema.org/Service"
                     aria-labelledby={`service-title-${service.key}-mobile`}
@@ -265,7 +253,7 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
                       {dict.services[`${service.key}_desc`]}
                     </p>
                   </div>
-                </motion.article>
+                </article>
               </Link>
               </li>
             ))}

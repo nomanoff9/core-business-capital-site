@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import NextImage from 'next/image';
-import { motion } from 'framer-motion';
 import type { Dict } from '@/types/dict';
 
 interface CustomerReviewsProps {
@@ -59,19 +58,14 @@ export default function CustomerReviews({ dict, className = '' }: CustomerReview
     >
       {/* Section Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
+        <div className="text-center animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" style={{ color: '#ffffff' }}>
             {dict.reviews.title}
           </h2>
           <p className="text-lg sm:text-xl max-w-3xl mx-auto" style={{ color: '#f3f4f6' }}>
             {dict.reviews.subtitle}
           </p>
-        </motion.div>
+        </div>
       </div>
 
       {/* Carousel Container */}
@@ -81,17 +75,11 @@ export default function CustomerReviews({ dict, className = '' }: CustomerReview
         <div className="absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none" />
 
         {/* Scrolling Container */}
-        <motion.div
-          className="flex gap-8"
-          animate={{ 
-            x: `-${(currentIndex * (625 + 32))}px` // 625px width + 32px gap
-          }}
-          transition={{
-            duration: 2,
-            ease: "easeInOut"
-          }}
+        <div
+          className="flex gap-8 transition-transform duration-[2000ms] ease-in-out"
           style={{
-            width: `${duplicatedReviews.length * (625 + 32)}px` // Calculate total width
+            width: `${duplicatedReviews.length * (625 + 32)}px`, // Calculate total width
+            transform: `translateX(-${(currentIndex * (625 + 32))}px)`
           }}
         >
           {duplicatedReviews.map((review, index) => (
@@ -125,7 +113,7 @@ export default function CustomerReviews({ dict, className = '' }: CustomerReview
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
