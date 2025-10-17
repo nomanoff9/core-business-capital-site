@@ -36,6 +36,13 @@ html {
   opacity: 0; /* Start hidden until animation runs */
 }
 
+/* Reset list styling - Remove default browser padding */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 /* Remove default margins from header and main sections */
 header,
 section {
