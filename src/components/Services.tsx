@@ -97,7 +97,7 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
           </h2>
 
           {/* Desktop Layout: 2 rows x 4 columns (768px and above) */}
-          <ul className="hidden min-[768px]:grid grid-cols-4 grid-rows-2 gap-6 list-none mx-auto p-0" style={{ maxWidth: 'fit-content' }} aria-label="Business funding services">
+          <ul className="hidden min-[768px]:grid grid-cols-4 grid-rows-2 gap-6 list-none pl-0 mx-auto" style={{ maxWidth: 'fit-content' }} aria-label="Business funding services">
             {serviceKeys.map((service, i) => (
               <li key={service.key}>
                 <Link 
@@ -151,7 +151,7 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
           </ul>
 
           {/* Tablet Layout: 4 rows x 2 columns (480px to 767px) */}
-          <ul className="hidden min-[480px]:max-[767px]:grid grid-cols-2 gap-6 list-none mx-auto p-0" style={{ maxWidth: 'fit-content' }} aria-label="Business funding services">
+          <ul className="hidden min-[480px]:max-[767px]:grid grid-cols-2 gap-6 list-none pl-0 mx-auto" style={{ maxWidth: 'fit-content' }} aria-label="Business funding services">
               {serviceKeys.map((service, i) => (
                 <li key={service.key}>
                   <Link 
@@ -205,7 +205,7 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
           </ul>
 
           {/* Mobile Layout: Single column (Below 480px) */}
-          <ul className="block min-[480px]:hidden space-y-6 list-none p-0" aria-label="Business funding services">
+          <ul className="block min-[480px]:hidden space-y-6 list-none pl-0" aria-label="Business funding services">
             {serviceKeys.map((service, i) => (
               <li key={service.key}>
                 <Link 
