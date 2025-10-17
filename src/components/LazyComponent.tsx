@@ -1,31 +1,57 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 interface LazyComponentProps {
   children: React.ReactNode;
+  rootMargin?: string;
+  threshold?: number;
 }
 
 /**
- * LazyComponent - Renders children only after initial page load
- * This improves initial page load performance by deferring below-the-fold content
+ * LazyComponent - Renders children only when they're about to enter the viewport
+ * Uses Intersection Observer for efficient lazy loading
+ * This dramatically reduces initial JavaScript execution
  */
-export default function LazyComponent({ children }: LazyComponentProps) {
+export default function LazyComponent({ 
+  children, 
+  rootMargin = '200px',
+  threshold = 0.01 
+}: LazyComponentProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Use setTimeout to defer rendering until after initial paint
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100); // Delay by 100ms to prioritize above-the-fold content
+    const currentRef = ref.current;
+    if (!currentRef) return;
 
-    return () => clearTimeout(timer);
-  }, []);
+    // Use Intersection Observer for viewport detection
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect(); // Stop observing once visible
+          }
+        });
+      },
+      {
+        rootMargin, // Load before entering viewport
+        threshold,  // Trigger when just visible
+      }
+    );
 
-  // Return null during SSR and initial client render
-  if (!isVisible) {
-    return <div style={{ minHeight: '100px' }} />; // Placeholder to prevent CLS
-  }
+    observer.observe(currentRef);
 
-  return <>{children}</>;
+    return () => {
+      observer.disconnect();
+    };
+  }, [rootMargin, threshold]);
+
+  // Return placeholder during SSR and before intersection
+  return (
+    <div ref={ref} style={{ minHeight: isVisible ? 'auto' : '100px' }}>
+      {isVisible ? children : null}
+    </div>
+  );
 }
