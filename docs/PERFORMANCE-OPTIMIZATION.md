@@ -12,18 +12,26 @@ This document tracks performance optimizations implemented to improve PageSpeed 
 ## Optimizations Implemented
 
 ### 1. JavaScript Execution Time Reduction
-**Problem**: 1.8s JavaScript execution time blocking main thread
+**Problem**: 2.5s JavaScript execution time blocking main thread (Mobile PageSpeed)
 
 **Solutions**:
+- ✅ **Completely removed Framer Motion library** (~60 KiB gzipped)
+  - Removed from Header.tsx (dropdown, mobile menu)
+  - Removed from Services.tsx (service cards)
+  - Removed from ServicesDetail.tsx (all section animations)
+  - Removed from CustomerReviews.tsx (carousel)
+- ✅ Replaced all animations with CSS (fadeIn, fadeInUp)
 - ✅ Aggressive code splitting with webpack optimization
   - Framework chunk (React/Next.js): 201 kB
   - Shared libraries split by package name
   - Commons chunk for code used across 2+ pages
-- ✅ Removed Framer Motion from lazy-loaded components (-25 KiB)
-- ✅ Replaced with CSS animations (fadeIn, fadeInUp)
 - ✅ Target ES2020 for modern browsers (-11 KiB polyfills)
 
-**Impact**: Reduced unused JavaScript by ~86 KiB
+**Impact**: 
+- Eliminated `lib.framer-motion.js` chunk (339ms execution time on mobile)
+- Reduced total JavaScript by ~97 KiB
+- Shared chunks: 9.84 kB → 8.48 kB (-1.36 KiB)
+- First Load JS: 210 kB → 209 kB
 
 ### 2. Third-Party Code Optimization
 **Problem**: Google Tag Manager blocking main thread for 558ms
@@ -261,6 +269,8 @@ const inter = Inter({
 9. **5fde2e5**: Remove duplicate next.config.js
 10. **f39bff6**: Add complete images.qualities config
 11. **e8b5d1f**: Optimize JavaScript execution and main-thread work
+12. **5559868**: Add comprehensive performance documentation
+13. **70cb767**: **Remove Framer Motion from Header and ServicesDetail (critical mobile fix)**
 
 ## Related Documentation
 - [JavaScript Optimization](./JAVASCRIPT-OPTIMIZATION.md)
