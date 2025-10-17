@@ -9,6 +9,7 @@ import CustomerReviews from '@/components/CustomerReviews';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
 import type { Dict } from '@/types/dict';
+import LazyComponent from '@/components/LazyComponent';
 
 export async function generateMetadata({
   params,
@@ -62,9 +63,15 @@ export default async function Home({
     <Header />
     <Hero dict={dict} />
     <Banner dict={dict} />
-    <Services dict={dict} showSchema={false} lang={lang} />
-    <CustomerReviews dict={dict} />
-    <Footer dict={dict} />
+    <LazyComponent>
+      <Services dict={dict} showSchema={false} lang={lang} />
+    </LazyComponent>
+    <LazyComponent>
+      <CustomerReviews dict={dict} />
+    </LazyComponent>
+    <LazyComponent>
+      <Footer dict={dict} />
+    </LazyComponent>
   </>
 );
 }
