@@ -3,6 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   
+  // Image optimization configuration
+  images: {
+    qualities: [60, 75, 90], // Allow custom quality values for optimized LCP
+  },
+  
   // Compiler options for modern browsers
   compiler: {
     // Remove console logs in production

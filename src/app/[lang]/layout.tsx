@@ -74,6 +74,15 @@ export default async function LocaleLayout({
   return (
     <html lang={lang}>
       <head>
+        {/* Preload critical hero image for faster LCP */}
+        <link 
+          rel="preload" 
+          as="image" 
+          href="/_next/image?url=%2Fimages%2Fhero-bg.jpg&w=1080&q=60"
+          imageSrcSet="/_next/image?url=%2Fimages%2Fhero-bg.jpg&w=640&q=60 640w, /_next/image?url=%2Fimages%2Fhero-bg.jpg&w=1080&q=60 1080w"
+          imageSizes="(max-width: 480px) 100vw, 50vw"
+          fetchPriority="high"
+        />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
