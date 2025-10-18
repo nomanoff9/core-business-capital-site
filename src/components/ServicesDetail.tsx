@@ -1,8 +1,9 @@
 'use client';
 import NextImage from 'next/image';
 import Link from 'next/link';
-import { memo } from 'react';
+import { memo, useState, useEffect } from 'react';
 import type { Dict } from '@/types/dict';
+import { appendUTMToURL } from './UTMTracker';
 
 interface ServicesDetailProps {
   dict: Dict;
@@ -72,6 +73,15 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
     ]
   };
 
+  // State for Apply Now URL with UTM parameters
+  const [applyURL, setApplyURL] = useState('https://app.corebusinesscapital.com/en/');
+
+  // Append UTM parameters to Apply Now URL
+  useEffect(() => {
+    const urlWithUTM = appendUTMToURL('https://app.corebusinesscapital.com/en/');
+    setApplyURL(urlWithUTM);
+  }, []);
+
   // CTA button styles to match Hero section
   const ctaButtonStyles = {
     backgroundColor: '#ea9a20',
@@ -130,7 +140,7 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
           
           <div className="mt-8">
             <a 
-              href="https://app.corebusinesscapital.com/en/" 
+              href={applyURL}
               target="_blank" 
               rel="noopener noreferrer" 
               className="no-underline inline-block"
@@ -316,7 +326,7 @@ const ServicesDetail = memo(function ServicesDetail({ dict, service, lang = 'en'
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a 
-              href="https://app.corebusinesscapital.com/en/" 
+              href={applyURL}
               target="_blank" 
               rel="noopener noreferrer" 
               className="no-underline"

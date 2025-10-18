@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import '../globals.css';
 import { notFound } from 'next/navigation';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import UTMTracker from '@/components/UTMTracker';
+import { Suspense } from 'react';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -92,6 +94,10 @@ export default async function LocaleLayout({
       </head>
       <body className={inter.className}>
         <GoogleAnalytics measurementId="G-QVMLEDCCHV" />
+        {/* UTM Tracker for Bing Ads and other campaign tracking */}
+        <Suspense fallback={null}>
+          <UTMTracker />
+        </Suspense>
         {children}
       </body>
     </html>

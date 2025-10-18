@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import NextImage from 'next/image';
 import { FiSun, FiMoon } from 'react-icons/fi';
+import { appendUTMToURL } from './UTMTracker';
 
 export default function Header() {
   const router = useRouter();
@@ -12,8 +13,16 @@ export default function Header() {
   const [theme, setTheme] = useState('light');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [applyURL, setApplyURL] = useState('https://app.corebusinesscapital.com/en/');
+  
   // Extract locale from pathname (assumes /:lang/... structure)
   const currentLocale = pathname?.split('/')[1] || 'en';
+
+  useEffect(() => {
+    // Append UTM parameters to Apply Now URL
+    const urlWithUTM = appendUTMToURL('https://app.corebusinesscapital.com/en/');
+    setApplyURL(urlWithUTM);
+  }, []);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -165,7 +174,7 @@ export default function Header() {
               </div>
 
               <div className="ml-8 min-w-[160px] h-[60px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4" style={{backgroundColor: '#ea9a20', color: 'white'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#efba22'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ea9a20'}>
-                <a href="https://app.corebusinesscapital.com/en/" target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center no-underline text-center focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50" style={{color: 'white !important'}} aria-label="Apply for business loan (opens in new tab)">{getNavText('apply')}</a>
+                <a href={applyURL} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center no-underline text-center focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50" style={{color: 'white !important'}} aria-label="Apply for business loan (opens in new tab)">{getNavText('apply')}</a>
               </div>
             </div>
             {/* Hamburger for Mobile */}
@@ -227,7 +236,7 @@ export default function Header() {
               <Link href={`/${currentLocale}/services`} className={mobileNavLinkStyles} role="menuitem" onClick={() => setIsMobileMenuOpen(false)}>{getNavText('services')}</Link>
               <div className="w-full h-[60px] mt-4 flex items-center justify-end">
                 <div className="min-w-[160px] h-[60px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4" style={{backgroundColor: '#ea9a20', color: 'white'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#efba22'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ea9a20'}>
-                  <a href="https://app.corebusinesscapital.com/en/" target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center no-underline text-center focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50" style={{color: 'white !important'}} aria-label="Apply for business loan (opens in new tab)" onClick={() => setIsMobileMenuOpen(false)}>{getNavText('apply')}</a>
+                  <a href={applyURL} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center no-underline text-center focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50" style={{color: 'white !important'}} aria-label="Apply for business loan (opens in new tab)" onClick={() => setIsMobileMenuOpen(false)}>{getNavText('apply')}</a>
                 </div>
               </div>
             </div>

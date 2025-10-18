@@ -1,7 +1,8 @@
 'use client';
 import NextImage from 'next/image';
-import { memo } from 'react';
+import { memo, useState, useEffect } from 'react';
 import type { Dict } from '@/types/dict';
+import { appendUTMToURL } from './UTMTracker';
 
 interface HeroProps {
   dict: Dict;
@@ -13,6 +14,15 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
   const heroTitle = dict.hero_title || 'Fast Business Funding When You Need It Most';
   const heroSubtitle = dict.hero_subtitle || 'Get approved for business funding in as little as 24 hours. No hidden fees, competitive rates, and flexible terms designed for your success.';
   const ctaText = dict.cta_apply || 'Apply Now';
+
+  // State for Apply Now URL with UTM parameters
+  const [applyURL, setApplyURL] = useState('https://app.corebusinesscapital.com/en/');
+
+  // Append UTM parameters to Apply Now URL on client side
+  useEffect(() => {
+    const urlWithUTM = appendUTMToURL('https://app.corebusinesscapital.com/en/');
+    setApplyURL(urlWithUTM);
+  }, []);
 
   // Common CTA button styles for DRY principle
   const ctaButtonStyles = {
@@ -107,7 +117,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           {/* Column 1 Row 2: Apply Now Button */}
           <div className="flex items-start justify-start" style={{ marginLeft: '8px' }}>
             <a 
-              href="https://app.corebusinesscapital.com/en/" 
+              href={applyURL}
               target="_blank" 
               rel="noopener noreferrer" 
               className="no-underline"
@@ -179,7 +189,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           {/* Apply Now Button - Compact */}
           <div className="flex justify-center pt-2">
             <a 
-              href="https://app.corebusinesscapital.com/en/" 
+              href={applyURL}
               target="_blank" 
               rel="noopener noreferrer" 
               className="no-underline"
