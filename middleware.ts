@@ -5,6 +5,13 @@ import Negotiator from 'negotiator';
 const locales = ['en', 'es'];
 const defaultLocale = 'en';
 
+// Map of old URLs to new URLs (add any 404s found in GSC here)
+const permanentRedirects: Record<string, string> = {
+  // Example: '/old-page': '/en',
+  // Example: '/about-us': '/en',
+  // Add specific redirects as found in Google Search Console
+};
+
 function getLocale(request: NextRequest): string {
   const headers = { 'accept-language': request.headers.get('accept-language') || '' };
   const languages = new Negotiator({ headers }).languages();
@@ -13,6 +20,14 @@ function getLocale(request: NextRequest): string {
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  
+  // Handle permanent redirects (301) for old URLs
+  if (permanentRedirects[pathname]) {
+    return NextResponse.redirect(
+      new URL(permanentRedirects[pathname], request.url),
+      { status: 301 }
+    );
+  }
   
   // Handle root path explicitly
   if (pathname === '/') {

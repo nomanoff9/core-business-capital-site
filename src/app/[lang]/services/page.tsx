@@ -14,9 +14,32 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!['en', 'es'].includes(lang)) notFound();
   const dict = await getDictionary(lang as 'en' | 'es');
+  const baseUrl = 'https://corebusinesscapital.com';
+  
   return {
     title: 'Business Financing Services - SBA Loans, Term Loans & More | Core Business Capital',
     description: `Explore our programs: ${dict.services.sba}, ${dict.services.equipment}, ${dict.services.invoice}, and more for small businesses in Colorado and nationwide since 2016.`,
+    metadataBase: new URL(baseUrl),
+    alternates: {
+      canonical: `${baseUrl}/${lang}/services`,
+      languages: {
+        'en': `${baseUrl}/en/services`,
+        'es': `${baseUrl}/es/services`,
+        'x-default': `${baseUrl}/en/services`,
+      },
+    },
+    openGraph: {
+      title: 'Business Financing Services - SBA Loans, Term Loans & More | Core Business Capital',
+      description: `Explore our programs for small businesses in Colorado and nationwide since 2016.`,
+      url: `${baseUrl}/${lang}/services`,
+      siteName: 'Core Business Capital',
+      type: 'website',
+      locale: lang === 'es' ? 'es_US' : 'en_US',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 

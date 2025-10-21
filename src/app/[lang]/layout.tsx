@@ -34,6 +34,7 @@ export async function generateMetadata({
       languages: {
         'en': 'https://corebusinesscapital.com/en',
         'es': 'https://corebusinesscapital.com/es',
+        'x-default': 'https://corebusinesscapital.com/en',
       },
     },
     openGraph: {

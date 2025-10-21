@@ -19,9 +19,47 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!['en', 'es'].includes(lang)) notFound();
   const dict = await getDictionary(lang as 'en' | 'es');
+  const baseUrl = 'https://corebusinesscapital.com';
+  
   return {
     title: 'Core Business Capital - Best Business Funding Solutions Since 2016',
     description: dict.hero_subtitle || 'Secure SBA Loans, Term Loans & more for small businesses nationwide. 5.0 Google rating, A+ BBB. Serving all 50 states from Colorado.',
+    keywords: 'SBA loans, business loans, small business financing, term loans, equipment financing, working capital, Colorado business loans',
+    metadataBase: new URL(baseUrl),
+    alternates: {
+      canonical: `${baseUrl}/${lang}`,
+      languages: {
+        'en': `${baseUrl}/en`,
+        'es': `${baseUrl}/es`,
+        'x-default': `${baseUrl}/en`,
+      },
+    },
+    openGraph: {
+      title: 'Core Business Capital - Best Business Funding Solutions Since 2016',
+      description: dict.hero_subtitle || 'Secure SBA Loans, Term Loans & more for small businesses nationwide.',
+      url: `${baseUrl}/${lang}`,
+      siteName: 'Core Business Capital',
+      type: 'website',
+      locale: lang === 'es' ? 'es_US' : 'en_US',
+      images: [
+        {
+          url: `${baseUrl}/images/hero-bg.jpg`,
+          width: 1200,
+          height: 630,
+          alt: 'Core Business Capital - Business Funding Solutions',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Core Business Capital - Best Business Funding Solutions Since 2016',
+      description: 'Secure SBA Loans, Term Loans & more for small businesses nationwide.',
+      images: [`${baseUrl}/images/hero-bg.jpg`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 

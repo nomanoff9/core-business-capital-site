@@ -79,22 +79,32 @@ export async function generateMetadata({
   
   const dict = await getDictionary(lang as 'en' | 'es');
   const metadata = serviceMetadata[service as keyof typeof serviceMetadata];
+  const baseUrl = 'https://corebusinesscapital.com';
   
   return {
     title: metadata.title,
     description: metadata.description,
     keywords: `${dict.services[service as keyof typeof dict.services]}, small business loans, business financing, Core Business Capital, Colorado, ${metadata.category}`,
+    metadataBase: new URL(baseUrl),
+    alternates: {
+      canonical: `${baseUrl}/${lang}/services/${service}`,
+      languages: {
+        'en': `${baseUrl}/en/services/${service}`,
+        'es': `${baseUrl}/es/services/${service}`,
+        'x-default': `${baseUrl}/en/services/${service}`,
+      },
+    },
     openGraph: {
       title: metadata.title,
       description: metadata.description,
+      url: `${baseUrl}/${lang}/services/${service}`,
+      siteName: 'Core Business Capital',
       type: 'website',
       locale: lang === 'es' ? 'es_US' : 'en_US',
     },
-    alternates: {
-      languages: {
-        en: `/en/services/${service}`,
-        es: `/es/services/${service}`,
-      },
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
