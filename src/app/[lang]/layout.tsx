@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import UTMTracker from '@/components/UTMTracker';
 import { Suspense } from 'react';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -100,6 +101,7 @@ export default async function LocaleLayout({
           <UTMTracker />
         </Suspense>
         {children}
+        <Analytics />
       </body>
     </html>
   );
