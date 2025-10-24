@@ -7,9 +7,10 @@ const defaultLocale = 'en';
 
 // Map of old URLs to new URLs (add any 404s found in GSC here)
 const permanentRedirects: Record<string, string> = {
-  // Example: '/old-page': '/en',
-  // Example: '/about-us': '/en',
-  // Add specific redirects as found in Google Search Console
+  // Old blog redirects to home (blog may be added in future)
+  '/blog': '/en',
+  '/blog/': '/en',
+  // Add more redirects as found in Google Search Console
 };
 
 function getLocale(request: NextRequest): string {
