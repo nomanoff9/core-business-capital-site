@@ -32,7 +32,7 @@ export function middleware(request: NextRequest) {
   // Handle root path explicitly
   if (pathname === '/') {
     request.nextUrl.pathname = '/en';
-    return NextResponse.redirect(request.nextUrl);
+    return NextResponse.redirect(request.nextUrl, { status: 308 });
   }
   
   const pathnameHasLocale = locales.some(
@@ -44,7 +44,7 @@ export function middleware(request: NextRequest) {
   // Redirect to default locale for all other paths
   const locale = defaultLocale;
   request.nextUrl.pathname = `/${locale}${pathname}`;
-  return NextResponse.redirect(request.nextUrl);
+  return NextResponse.redirect(request.nextUrl, { status: 308 });
 }
 
 export const config = {
