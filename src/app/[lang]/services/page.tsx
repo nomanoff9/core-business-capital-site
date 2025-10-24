@@ -4,7 +4,9 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Services from '@/components/Services';
 import Banner from '@/components/Banner';
+import CustomerReviews from '@/components/CustomerReviews';
 import Footer from '@/components/Footer';
+import LazyComponent from '@/components/LazyComponent';
 
 export async function generateMetadata({
   params,
@@ -57,7 +59,12 @@ export default async function ServicesPage({
       <Header />
       <Services dict={dict} showSchema={true} lang={lang} />
       <Banner dict={dict} />
-      <Footer dict={dict} />
+      <LazyComponent>
+        <CustomerReviews dict={dict} />
+      </LazyComponent>
+      <LazyComponent>
+        <Footer dict={dict} />
+      </LazyComponent>
     </>
   );
 }
