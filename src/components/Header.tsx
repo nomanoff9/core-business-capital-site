@@ -136,7 +136,7 @@ export default function Header() {
               </Link>
             </div>
             {/* Desktop Nav Links */}
-            <div className="hidden min-[990px]:flex flex-1 justify-end items-center gap-24">
+            <div className="hidden min-[990px]:flex flex-1 justify-end items-center gap-8">
               <Link href={`/${currentLocale}`} className={navLinkStyles}>{getNavText('home')}</Link>
               
               {/* Services Dropdown */}
