@@ -28,6 +28,26 @@ const PFSCopilot = memo(function PFSCopilot({ dict }: PFSCopilotProps) {
           <p className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6" style={{ color: '#603913' }}>
             {dict.pfsCopilot.subtitle}
           </p>
+          
+          {/* CTA Button */}
+          <div className="mb-8">
+            <Link
+              href="https://pfs.corebusinesscapital.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-12 py-5 text-xl font-extrabold rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-400 uppercase tracking-wide shadow-lg hover:shadow-2xl"
+              style={{ 
+                backgroundColor: '#98a894',
+                color: '#ffffff',
+                minWidth: '280px'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#aabaa7'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#98a894'}
+            >
+              {dict.pfsCopilot.cta_button} →
+            </Link>
+          </div>
+
           <p className="text-lg sm:text-xl max-w-4xl mx-auto leading-relaxed" style={{ color: '#000000' }}>
             {dict.pfsCopilot.description}
           </p>
