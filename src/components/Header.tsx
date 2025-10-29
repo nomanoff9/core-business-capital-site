@@ -4,13 +4,11 @@ import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import NextImage from 'next/image';
-import { FiSun, FiMoon } from 'react-icons/fi';
 import { appendUTMToURL } from './UTMTracker';
 
 export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
-  const [theme, setTheme] = useState('light');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [applyURL, setApplyURL] = useState('https://app.corebusinesscapital.com/en/');
@@ -24,18 +22,6 @@ export default function Header() {
     setApplyURL(urlWithUTM);
   }, []);
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark');
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => setTheme(prev => prev === 'dark' ? 'light' : 'dark');
-
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const switchLang = (newLang: string) => {
@@ -48,11 +34,13 @@ export default function Header() {
       en: {
         home: 'Home',
         services: 'Services',
+        pfsCopilot: 'PFS Copilot',
         apply: 'Apply Now'
       },
       es: {
         home: 'Inicio',
         services: 'Servicios',
+        pfsCopilot: 'Copiloto EFP',
         apply: 'Aplicar Ahora'
       }
     };
@@ -99,27 +87,37 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-white dark:bg-gray-900 transition-colors duration-200" role="banner">
+    <header className="w-full bg-white transition-colors duration-200" role="banner">
       {/* Language Toggle Above Nav */}
-      <div className="w-full flex justify-end items-center bg-gray-50 dark:bg-gray-800 px-4 py-2 border-b border-gray-200 dark:border-gray-700 gap-4">
-        <button
-          onClick={toggleTheme}
-          className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-orange-100 dark:hover:bg-orange-900 hover:text-orange-600 dark:hover:text-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50"
-          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-        >
-          {theme === 'dark' ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
-        </button>
-        <button
-          onClick={() => switchLang(currentLocale === 'en' ? 'es' : 'en')}
-          className="flex items-center gap-2 px-3 py-1 rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-orange-100 dark:hover:bg-orange-900 hover:text-orange-600 dark:hover:text-orange-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50"
-          aria-label={`Switch to ${currentLocale === 'en' ? 'Spanish' : 'English'}`}
-        >
-          <span className={currentLocale === 'en' ? 'font-bold text-orange-600 dark:text-orange-400' : 'text-gray-500 dark:text-gray-400'}>English</span>
-          <span className="mx-1">/</span>
-          <span className={currentLocale === 'es' ? 'font-bold text-orange-600 dark:text-orange-400' : 'text-gray-500 dark:text-gray-400'}>Español</span>
-        </button>
+      <div className="w-full flex justify-end items-center px-4 py-4 bg-white border-b border-gray-100">
+        <div className="flex items-center gap-3 bg-gray-50 rounded-full shadow-lg p-1.5 border border-gray-200">
+          <button
+            onClick={() => switchLang('en')}
+            className={`px-8 py-3 rounded-full text-base font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400/50 ${
+              currentLocale === 'en'
+                ? 'text-white shadow-lg transform scale-105'
+                : 'text-gray-600 hover:text-orange-600 bg-white'
+            }`}
+            style={currentLocale === 'en' ? { background: '#ee9435' } : undefined}
+            aria-label="Switch to English"
+          >
+            🇺🇸 English
+          </button>
+          <button
+            onClick={() => switchLang('es')}
+            className={`px-8 py-3 rounded-full text-base font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400/50 ${
+              currentLocale === 'es'
+                ? 'text-white shadow-lg transform scale-105'
+                : 'text-gray-600 hover:text-orange-600 bg-white'
+            }`}
+            style={currentLocale === 'es' ? { background: '#ee9435' } : undefined}
+            aria-label="Switch to Spanish"
+          >
+            🇪🇸 Español
+          </button>
+        </div>
       </div>
-      <nav className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-100 dark:border-gray-800 sticky top-0 z-50 transition-all duration-200" role="navigation" aria-label="Main navigation">
+      <nav className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50 transition-all duration-200" role="navigation" aria-label="Main navigation">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 min-[480px]:h-16 sm:h-20">
             {/* Brand Logo Left */}
@@ -173,7 +171,16 @@ export default function Header() {
                 )}
               </div>
 
-              <div className="ml-8 min-w-[160px] h-[60px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4" style={{backgroundColor: '#ea9a20', color: 'white'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#efba22'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ea9a20'}>
+              <a 
+                href="https://pfs.corebusinesscapital.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={navLinkStyles}
+              >
+                {getNavText('pfsCopilot')}
+              </a>
+
+              <div className="ml-8 min-w-[160px] h-[60px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4" style={{backgroundColor: '#f0bb6a', color: 'white'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f4c888'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f0bb6a'}>
                 <a href={applyURL} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center no-underline text-center focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50" style={{color: 'white !important'}} aria-label="Apply for business loan (opens in new tab)">{getNavText('apply')}</a>
               </div>
             </div>
@@ -227,15 +234,25 @@ export default function Header() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div
-            className="min-[990px]:hidden bg-white dark:bg-gray-900 px-4 py-4 shadow-sm border-t border-gray-100 dark:border-gray-800 animate-fade-in"
+            className="min-[990px]:hidden bg-white px-4 py-4 shadow-sm border-t border-gray-100 animate-fade-in"
             role="menu"
             aria-label="Mobile navigation menu"
           >
             <div className="flex flex-col items-end gap-2">
               <Link href={`/${currentLocale}`} className={mobileNavLinkStyles} role="menuitem" onClick={() => setIsMobileMenuOpen(false)}>{getNavText('home')}</Link>
               <Link href={`/${currentLocale}/services`} className={mobileNavLinkStyles} role="menuitem" onClick={() => setIsMobileMenuOpen(false)}>{getNavText('services')}</Link>
+              <a 
+                href="https://pfs.corebusinesscapital.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={mobileNavLinkStyles}
+                role="menuitem"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {getNavText('pfsCopilot')}
+              </a>
               <div className="w-full h-[60px] mt-4 flex items-center justify-end">
-                <div className="min-w-[160px] h-[60px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4" style={{backgroundColor: '#ea9a20', color: 'white'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#efba22'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ea9a20'}>
+                <div className="min-w-[160px] h-[60px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4" style={{backgroundColor: '#f0bb6a', color: 'white'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f4c888'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f0bb6a'}>
                   <a href={applyURL} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center no-underline text-center focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50" style={{color: 'white !important'}} aria-label="Apply for business loan (opens in new tab)" onClick={() => setIsMobileMenuOpen(false)}>{getNavText('apply')}</a>
                 </div>
               </div>

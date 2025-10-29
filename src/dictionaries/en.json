@@ -35,6 +35,32 @@
     "cta_text": "Ready to join our satisfied customers?",
     "cta_button": "Get Started Today"
   },
+  "pfsCopilot": {
+    "title": "Documentation Superpowers at Your Fingertips",
+    "subtitle": "Interested in an SBA Loan?",
+    "description": "Complete your SBA Form 413 Personal Financial Statement with our AI-powered assistant. Available in English and Spanish, optimized for mobile devices, and designed with bank-grade security to protect your financial data.",
+    "features": {
+      "quick": {
+        "title": "Quick & Easy",
+        "desc": "Complete your PFS in minutes with AI guidance"
+      },
+      "mobile": {
+        "title": "Mobile Friendly",
+        "desc": "Works perfectly on any device, anywhere"
+      },
+      "bilingual": {
+        "title": "Bilingual",
+        "desc": "Available in English and Spanish"
+      },
+      "secure": {
+        "title": "Secure",
+        "desc": "Bank-grade encryption protects your data"
+      }
+    },
+    "cta_text": "Ready to complete your Personal Financial Statement?",
+    "cta_button": "Launch PFS Copilot",
+    "form_info": "SBA Form 413 - Free to use"
+  },
   "apply_ready": "Ready to Secure Funding?",
   "apply_desc": "Apply now for the best terms on SBA Loans, Cash Advances, and more. Our process is fast, secure, and tailored for your business.",
   "apply_benefits": {

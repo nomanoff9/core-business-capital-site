@@ -36,6 +36,32 @@ export type Dict = {
     cta_text: string;
     cta_button: string;
   };
+  pfsCopilot: {
+    title: string;
+    subtitle: string;
+    description: string;
+    features: {
+      quick: {
+        title: string;
+        desc: string;
+      };
+      mobile: {
+        title: string;
+        desc: string;
+      };
+      bilingual: {
+        title: string;
+        desc: string;
+      };
+      secure: {
+        title: string;
+        desc: string;
+      };
+    };
+    cta_text: string;
+    cta_button: string;
+    form_info: string;
+  };
   apply_ready: string;
   apply_desc: string;
   apply_benefits: {

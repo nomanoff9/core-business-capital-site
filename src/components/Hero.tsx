@@ -26,12 +26,12 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
 
   // Common CTA button styles for DRY principle
   const ctaButtonStyles = {
-    backgroundColor: '#ea9a20',
+    backgroundColor: '#98a894',
     color: 'white'
   };
 
   const handleCtaHover = (e: React.MouseEvent<HTMLDivElement>, isEntering: boolean) => {
-    e.currentTarget.style.backgroundColor = isEntering ? '#efba22' : '#ea9a20';
+    e.currentTarget.style.backgroundColor = isEntering ? '#aabaa7' : '#98a894';
   };
 
   return (
@@ -63,7 +63,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
       />
 
       {/* Responsive Grid Container */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 min-[480px]:pt-8 pb-8 min-[480px]:pb-16 sm:py-16">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 min-[480px]:pt-8 pb-12 min-[480px]:pb-16 sm:py-16">
         
         {/* Desktop/Tablet Layout: 2x2 Grid (480px and above) */}
         <div className="hidden min-[480px]:grid grid-cols-2 grid-rows-2 gap-8 min-h-[70vh]">
@@ -139,7 +139,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
         </div>
 
         {/* Mobile Layout: Single Column (Below 480px) - Optimized for above-the-fold */}
-        <div className="block min-[480px]:hidden space-y-4">
+        <div className="block min-[480px]:hidden space-y-6">
           
           {/* Hero Statement - Compact */}
           <div className="text-center space-y-3">
@@ -162,7 +162,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           </div>
 
           {/* Hero Image Centered - Compact aspect ratio */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-4">
             <div className="relative w-full max-w-sm">
               <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden shadow-xl">
                 <NextImage
@@ -187,7 +187,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           </div>
 
           {/* Apply Now Button - Compact */}
-          <div className="flex justify-center pt-2">
+          <div className="flex justify-center mb-6">
             <a 
               href={applyURL}
               target="_blank" 
@@ -197,7 +197,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
               itemProp="url"
             >
               <div
-                className="min-w-[140px] h-[50px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4 text-center text-sm"
+                className="min-w-[140px] h-[50px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4 text-center text-sm mt-4 mb-6"
                 style={ctaButtonStyles}
                 onMouseEnter={(e) => handleCtaHover(e, true)}
                 onMouseLeave={(e) => handleCtaHover(e, false)}

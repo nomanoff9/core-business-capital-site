@@ -10,7 +10,7 @@ interface FooterProps {
 export default function Footer({ dict }: FooterProps) {
   return (
     <footer className="text-[#3d2914] py-12 px-4" style={{ backgroundColor: 'burlywood' }}>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 min-[990px]:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 min-[990px]:grid-cols-4 gap-8">
         
         {/* Left Column - Logo and Company Info */}
         <div className="space-y-4">
@@ -44,6 +44,23 @@ export default function Footer({ dict }: FooterProps) {
             <li><Link href="/en/services/invoice" className="hover:text-[#8b5a00] transition-colors duration-200">Invoice Financing</Link></li>
             <li><Link href="/en/services/payroll" className="hover:text-[#8b5a00] transition-colors duration-200">Payroll Financing</Link></li>
             <li><Link href="/en/services/cash" className="hover:text-[#8b5a00] transition-colors duration-200">Business Cash Advances</Link></li>
+          </ul>
+        </div>
+
+        {/* SBA Assistance Column */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4">SBA Assistance</h3>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <a 
+                href="https://pfs.corebusinesscapital.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-[#8b5a00] transition-colors duration-200"
+              >
+                PFS Copilot
+              </a>
+            </li>
           </ul>
         </div>
 

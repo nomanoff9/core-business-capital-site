@@ -35,6 +35,32 @@
     "cta_text": "¿Listo para unirse a nuestros clientes satisfechos?",
     "cta_button": "Comenzar Hoy"
   },
+  "pfsCopilot": {
+    "title": "Superpoderes de Documentación al Alcance de Su Mano",
+    "subtitle": "¿Interesado en un Préstamo SBA?",
+    "description": "Complete su Formulario SBA 413 de Estado Financiero Personal con nuestro asistente con inteligencia artificial. Disponible en inglés y español, optimizado para dispositivos móviles y diseñado con seguridad de grado bancario para proteger sus datos financieros.",
+    "features": {
+      "quick": {
+        "title": "Rápido y Fácil",
+        "desc": "Complete su EFP en minutos con guía de IA"
+      },
+      "mobile": {
+        "title": "Amigable Móvil",
+        "desc": "Funciona perfectamente en cualquier dispositivo"
+      },
+      "bilingual": {
+        "title": "Bilingüe",
+        "desc": "Disponible en inglés y español"
+      },
+      "secure": {
+        "title": "Seguro",
+        "desc": "Cifrado de grado bancario protege sus datos"
+      }
+    },
+    "cta_text": "¿Listo para completar su Estado Financiero Personal?",
+    "cta_button": "Lanzar Copiloto EFP",
+    "form_info": "Formulario SBA 413 - Gratis para usar"
+  },
   "apply_ready": "¿Listo para Asegurar Financiamiento?",
   "apply_desc": "Solicite ahora los mejores términos en Préstamos SBA, Adelantos de Efectivo y más. Nuestro proceso es rápido, seguro y adaptado a su negocio.",
   "apply_benefits": {
