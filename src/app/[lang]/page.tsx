@@ -7,6 +7,7 @@ import Banner from '@/components/Banner';
 import Services from '@/components/Services';
 import CustomerReviews from '@/components/CustomerReviews';
 import PFSCopilot from '@/components/PFSCopilot';
+import SBACalculator from '@/components/SBACalculator';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
 import type { Dict } from '@/types/dict';
@@ -110,6 +111,9 @@ export default async function Home({
     </LazyComponent>
     <LazyComponent>
       <PFSCopilot dict={dict} />
+    </LazyComponent>
+    <LazyComponent>
+      <SBACalculator />
     </LazyComponent>
     <LazyComponent>
       <Footer dict={dict} />

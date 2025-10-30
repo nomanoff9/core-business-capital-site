@@ -9,7 +9,7 @@ interface FooterProps {
 
 export default function Footer({ dict }: FooterProps) {
   return (
-    <footer className="text-[#3d2914] py-12 px-4" style={{ backgroundColor: '#e2a884' }}>
+    <footer className="text-[#3d2914] py-12 px-4 pt-0" style={{ backgroundColor: '#e2a884' }}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 min-[990px]:grid-cols-4 gap-8">
         
         {/* Left Column - Logo and Company Info */}
@@ -51,6 +51,14 @@ export default function Footer({ dict }: FooterProps) {
         <div>
           <h3 className="text-lg font-semibold mb-4">SBA Assistance</h3>
           <ul className="space-y-2 text-sm">
+            <li>
+              <Link 
+                href="/en/sba-calculator" 
+                className="hover:text-[#8b5a00] transition-colors duration-200"
+              >
+                SBA Calculator
+              </Link>
+            </li>
             <li>
               <a 
                 href="https://pfs.corebusinesscapital.com" 

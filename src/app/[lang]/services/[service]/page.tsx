@@ -6,6 +6,7 @@ import Banner from '@/components/Banner';
 import ServicesDetail from '@/components/ServicesDetail';
 import CustomerReviews from '@/components/CustomerReviews';
 import Footer from '@/components/Footer';
+import SBACalculator from '@/components/SBACalculator';
 import Script from 'next/script';
 
 // Valid service keys
@@ -170,6 +171,7 @@ export default async function ServicePage({
         service={service}
         lang={lang}
       />
+      {service === 'sba' && <SBACalculator />}
       <Banner dict={dict} />
       <CustomerReviews dict={dict} />
       <Footer dict={dict} />

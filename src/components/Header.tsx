@@ -34,12 +34,14 @@ export default function Header() {
       en: {
         home: 'Home',
         services: 'Services',
+        sbaCalculator: 'SBA Calculator',
         pfsCopilot: 'PFS Copilot',
         apply: 'Apply Now'
       },
       es: {
         home: 'Inicio',
         services: 'Servicios',
+        sbaCalculator: 'Calculadora SBA',
         pfsCopilot: 'Copiloto EFP',
         apply: 'Aplicar Ahora'
       }
@@ -171,6 +173,8 @@ export default function Header() {
                 )}
               </div>
 
+              <Link href={`/${currentLocale}/sba-calculator`} className={navLinkStyles}>{getNavText('sbaCalculator')}</Link>
+
               <a 
                 href="https://pfs.corebusinesscapital.com" 
                 target="_blank" 
@@ -241,6 +245,14 @@ export default function Header() {
             <div className="flex flex-col items-end gap-2">
               <Link href={`/${currentLocale}`} className={mobileNavLinkStyles} role="menuitem" onClick={() => setIsMobileMenuOpen(false)}>{getNavText('home')}</Link>
               <Link href={`/${currentLocale}/services`} className={mobileNavLinkStyles} role="menuitem" onClick={() => setIsMobileMenuOpen(false)}>{getNavText('services')}</Link>
+              <Link 
+                href={`/${currentLocale}/sba-calculator`} 
+                className={mobileNavLinkStyles} 
+                role="menuitem" 
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {getNavText('sbaCalculator')}
+              </Link>
               <a 
                 href="https://pfs.corebusinesscapital.com" 
                 target="_blank" 

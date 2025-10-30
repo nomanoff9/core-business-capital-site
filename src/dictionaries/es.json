@@ -74,6 +74,13 @@
     "email": "nicholas@corebusinesscapital.com",
     "privacy": "Política de Privacidad"
   },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "pfsCopilot": "Copiloto EFP",
+    "sbaCalculator": "Calculadora SBA",
+    "apply": "Aplicar Ahora"
+  },
   "serviceDetails": {
     "sectionHeaders": {
       "qualifications_title": "Calificaciones Mínimas",
