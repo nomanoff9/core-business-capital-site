@@ -113,7 +113,7 @@ export default async function Home({
       <PFSCopilot dict={dict} />
     </LazyComponent>
     <LazyComponent>
-      <SBACalculator />
+      <SBACalculator dict={dict} lang={lang} />
     </LazyComponent>
     <LazyComponent>
       <Footer dict={dict} />

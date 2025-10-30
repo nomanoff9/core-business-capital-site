@@ -81,6 +81,23 @@
     "sbaCalculator": "SBA Calculator",
     "apply": "Apply Now"
   },
+  "sbaCalculator": {
+    "title": "U.S. SBA Loan Calculator",
+    "subtitle": "Calculate your estimated monthly payments for a 10-year SBA loan",
+    "currentRate": "Current Rate: WSJ Prime (7.00%) + 2.5% = 9.5% APR",
+    "enterAmount": "Enter amount up to $5,000,000",
+    "loanTerm": "Loan Term",
+    "years": "Years",
+    "months": "Months",
+    "interestRate": "Interest Rate",
+    "monthlyPayment": "Estimated Monthly Payment",
+    "avgAnnualInterest": "Avg. Annual Interest",
+    "ctaText": "Ready to secure your SBA loan? Apply now to get started!",
+    "applyNow": "Apply Now →",
+    "or": "Or",
+    "launchPFS": "Launch PFS Copilot",
+    "disclaimer": "* This calculator provides an estimate only. Actual rates, terms, and monthly payments may vary based on creditworthiness, collateral, and other factors. WSJ Prime Rate subject to change. Contact us for a personalized quote."
+  },
   "serviceDetails": {
     "sectionHeaders": {
       "qualifications_title": "Minimum Qualifications",

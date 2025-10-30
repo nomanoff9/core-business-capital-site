@@ -1,8 +1,14 @@
 'use client';
 import { memo, useState, useEffect } from 'react';
 import Link from 'next/link';
+import type { Dict } from '@/types/dict';
 
-const SBACalculator = memo(function SBACalculator() {
+interface SBACalculatorProps {
+  dict: Dict;
+  lang?: string;
+}
+
+const SBACalculator = memo(function SBACalculator({ dict, lang = 'en' }: SBACalculatorProps) {
   const [loanAmount, setLoanAmount] = useState<string>('250000');
   const [monthlyPayment, setMonthlyPayment] = useState<number>(0);
   const [averageAnnualInterest, setAverageAnnualInterest] = useState<number>(0);
@@ -70,13 +76,13 @@ const SBACalculator = memo(function SBACalculator() {
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4"
             style={{ color: '#ffffff' }}
           >
-            U.S. SBA Loan Calculator
+            {dict.sbaCalculator.title}
           </h2>
           <p className="text-lg sm:text-xl" style={{ color: '#f4eda9' }}>
-            Calculate your estimated monthly payments for a 10-year SBA loan
+            {dict.sbaCalculator.subtitle}
           </p>
           <p className="text-sm mt-2" style={{ color: '#e2a884' }}>
-            Current Rate: WSJ Prime (7.00%) + 2.5% = 9.5% APR
+            {dict.sbaCalculator.currentRate}
           </p>
         </div>
 
@@ -89,7 +95,7 @@ const SBACalculator = memo(function SBACalculator() {
               className="block text-sm font-bold mb-4 text-center"
               style={{ color: '#ffffff' }}
             >
-              Enter amount up to $5,000,000
+              {dict.sbaCalculator.enterAmount}
             </label>
             <div className="relative w-4/5">
               <span 
@@ -121,13 +127,13 @@ const SBACalculator = memo(function SBACalculator() {
             style={{ backgroundColor: '#fff3c7' }}
           >
             <p className="text-sm font-semibold mb-1" style={{ color: '#4d2508' }}>
-              Loan Term
+              {dict.sbaCalculator.loanTerm}
             </p>
             <p className="text-2xl font-bold" style={{ color: '#dd5d20' }}>
-              10 Years
+              10 {dict.sbaCalculator.years}
             </p>
             <p className="text-sm" style={{ color: '#4d2508' }}>
-              (120 Months)
+              (120 {dict.sbaCalculator.months})
             </p>
           </div>
 
@@ -137,7 +143,7 @@ const SBACalculator = memo(function SBACalculator() {
             style={{ backgroundColor: '#f0bb6a' }}
           >
             <p className="text-sm font-semibold mb-1" style={{ color: '#4d2508' }}>
-              Interest Rate
+              {dict.sbaCalculator.interestRate}
             </p>
             <p className="text-2xl font-bold" style={{ color: '#4d2508' }}>
               9.5% APR
@@ -150,7 +156,7 @@ const SBACalculator = memo(function SBACalculator() {
             style={{ backgroundColor: '#dd5d20' }}
           >
             <p className="text-sm font-semibold mb-2" style={{ color: '#ffffff' }}>
-              Estimated Monthly Payment
+              {dict.sbaCalculator.monthlyPayment}
             </p>
             <p className="text-3xl font-black" style={{ color: '#ffffff' }}>
               {loanAmount && parseFloat(loanAmount) > 0 ? formatCurrency(monthlyPayment) : '$0.00'}
@@ -163,7 +169,7 @@ const SBACalculator = memo(function SBACalculator() {
             style={{ backgroundColor: '#98a894', border: '3px solid #707465' }}
           >
             <p className="text-sm font-semibold mb-2" style={{ color: '#ffffff' }}>
-              Avg. Annual Interest
+              {dict.sbaCalculator.avgAnnualInterest}
             </p>
             <p className="text-3xl font-black" style={{ color: '#ffffff' }}>
               {loanAmount && parseFloat(loanAmount) > 0 ? formatCurrency(averageAnnualInterest) : '$0.00'}
@@ -174,7 +180,7 @@ const SBACalculator = memo(function SBACalculator() {
         {/* Row 3: Call to Action */}
         <div className="text-center">
           <p className="text-lg mb-6" style={{ color: '#ffffff' }}>
-            Ready to secure your SBA loan? Apply now to get started!
+            {dict.sbaCalculator.ctaText}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -190,13 +196,13 @@ const SBACalculator = memo(function SBACalculator() {
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f27721'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#dd5d20'}
             >
-              Apply Now →
+              {dict.sbaCalculator.applyNow}
             </a>
             
-            <span className="text-white text-lg font-semibold">Or</span>
+            <span className="text-white text-lg font-semibold">{dict.sbaCalculator.or}</span>
             
             <Link
-              href="/en/pfs-copilot"
+              href={`/${lang}/pfs-copilot`}
               className="inline-flex items-center justify-center px-12 py-4 text-lg font-extrabold rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 uppercase tracking-wide shadow-lg hover:shadow-2xl"
               style={{ 
                 backgroundColor: '#98a894',
@@ -213,15 +219,14 @@ const SBACalculator = memo(function SBACalculator() {
                 e.currentTarget.style.borderColor = '#707465';
               }}
             >
-              Launch PFS Copilot
+              {dict.sbaCalculator.launchPFS}
             </Link>
           </div>
           
           {/* Disclaimer */}
           <div className="mt-8">
             <p className="text-xs text-gray-400 text-center leading-relaxed max-w-4xl mx-auto">
-              * This calculator provides an estimate only. Actual rates, terms, and monthly payments may vary based on creditworthiness, 
-              collateral, and other factors. WSJ Prime Rate subject to change. Contact us for a personalized quote.
+              {dict.sbaCalculator.disclaimer}
             </p>
           </div>
         </div>

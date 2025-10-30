@@ -53,7 +53,7 @@ export default async function SBACalculatorPage({
     <>
       <Header />
       <main>
-        <SBACalculator />
+        <SBACalculator dict={dict} lang={lang} />
         <Banner dict={dict} />
         <PFSCopilot dict={dict} />
       </main>

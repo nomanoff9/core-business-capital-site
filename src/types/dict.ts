@@ -75,6 +75,30 @@ export type Dict = {
     email: string;
     privacy: string;
   };
+  nav: {
+    home: string;
+    services: string;
+    pfsCopilot: string;
+    sbaCalculator: string;
+    apply: string;
+  };
+  sbaCalculator: {
+    title: string;
+    subtitle: string;
+    currentRate: string;
+    enterAmount: string;
+    loanTerm: string;
+    years: string;
+    months: string;
+    interestRate: string;
+    monthlyPayment: string;
+    avgAnnualInterest: string;
+    ctaText: string;
+    applyNow: string;
+    or: string;
+    launchPFS: string;
+    disclaimer: string;
+  };
   serviceDetails: {
     sectionHeaders: {
       qualifications_title: string;

@@ -171,7 +171,7 @@ export default async function ServicePage({
         service={service}
         lang={lang}
       />
-      {service === 'sba' && <SBACalculator />}
+      {service === 'sba' && <SBACalculator dict={dict} lang={lang} />}
       <Banner dict={dict} />
       <CustomerReviews dict={dict} />
       <Footer dict={dict} />

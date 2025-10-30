@@ -81,6 +81,23 @@
     "sbaCalculator": "Calculadora SBA",
     "apply": "Aplicar Ahora"
   },
+  "sbaCalculator": {
+    "title": "Calculadora de Préstamos SBA de EE.UU.",
+    "subtitle": "Calcule sus pagos mensuales estimados para un préstamo SBA de 10 años",
+    "currentRate": "Tasa Actual: WSJ Prime (7.00%) + 2.5% = 9.5% APR",
+    "enterAmount": "Ingrese monto hasta $5,000,000",
+    "loanTerm": "Plazo del Préstamo",
+    "years": "Años",
+    "months": "Meses",
+    "interestRate": "Tasa de Interés",
+    "monthlyPayment": "Pago Mensual Estimado",
+    "avgAnnualInterest": "Interés Anual Promedio",
+    "ctaText": "¿Listo para asegurar su préstamo SBA? ¡Solicite ahora para comenzar!",
+    "applyNow": "Solicitar Ahora →",
+    "or": "O",
+    "launchPFS": "Lanzar Copiloto EFP",
+    "disclaimer": "* Esta calculadora proporciona solo una estimación. Las tasas, términos y pagos mensuales reales pueden variar según la solvencia crediticia, la garantía y otros factores. La tasa WSJ Prime está sujeta a cambios. Contáctenos para obtener una cotización personalizada."
+  },
   "serviceDetails": {
     "sectionHeaders": {
       "qualifications_title": "Calificaciones Mínimas",
