@@ -26,18 +26,18 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
 
   // Common CTA button styles for DRY principle
   const ctaButtonStyles = {
-    backgroundColor: '#98a894',
+    backgroundColor: '#dd5d20',
     color: 'white'
   };
 
   const handleCtaHover = (e: React.MouseEvent<HTMLDivElement>, isEntering: boolean) => {
-    e.currentTarget.style.backgroundColor = isEntering ? '#aabaa7' : '#98a894';
+    e.currentTarget.style.backgroundColor = isEntering ? '#f27721' : '#dd5d20';
   };
 
   return (
     <section 
       className="w-full m-0 p-0"
-      style={{ backgroundColor: '#603913' }}
+      style={{ backgroundColor: '#4d2508' }}
       role="banner"
       aria-label="Hero section - Business funding solutions"
     >

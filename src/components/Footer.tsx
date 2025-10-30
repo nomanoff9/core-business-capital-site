@@ -9,7 +9,7 @@ interface FooterProps {
 
 export default function Footer({ dict }: FooterProps) {
   return (
-    <footer className="text-[#3d2914] py-12 px-4" style={{ backgroundColor: 'burlywood' }}>
+    <footer className="text-[#3d2914] py-12 px-4" style={{ backgroundColor: '#e2a884' }}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 min-[990px]:grid-cols-4 gap-8">
         
         {/* Left Column - Logo and Company Info */}

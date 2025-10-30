@@ -11,7 +11,7 @@ const PFSCopilot = memo(function PFSCopilot({ dict }: PFSCopilotProps) {
   return (
     <section 
       className="px-4 pt-20 pb-20"
-      style={{ backgroundColor: '#f4eda9', margin: 0, padding: '80px 16px' }}
+      style={{ backgroundColor: '#fff3c7', margin: 0, padding: '80px 16px' }}
       role="region"
       aria-labelledby="pfs-copilot-heading"
     >
@@ -39,7 +39,8 @@ const PFSCopilot = memo(function PFSCopilot({ dict }: PFSCopilotProps) {
               style={{ 
                 backgroundColor: '#98a894',
                 color: '#ffffff',
-                minWidth: '280px'
+                minWidth: '280px',
+                border: '3px solid #707465'
               }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#aabaa7'}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#98a894'}
@@ -58,7 +59,7 @@ const PFSCopilot = memo(function PFSCopilot({ dict }: PFSCopilotProps) {
           {/* Quick & Easy */}
           <div className="flex-1 min-w-[260px] max-w-[300px] relative overflow-hidden rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 group" 
                style={{ 
-                 backgroundColor: '#603913',
+                 backgroundColor: '#4d2508',
                  border: '6px solid #f4eda9',
                  transform: 'translateZ(0)'
                }}>
@@ -81,7 +82,7 @@ const PFSCopilot = memo(function PFSCopilot({ dict }: PFSCopilotProps) {
           {/* Mobile Friendly */}
           <div className="flex-1 min-w-[260px] max-w-[300px] relative overflow-hidden rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 group" 
                style={{ 
-                 backgroundColor: '#603913',
+                 backgroundColor: '#4d2508',
                  border: '6px solid #f4eda9',
                  transform: 'translateZ(0)'
                }}>
@@ -104,7 +105,7 @@ const PFSCopilot = memo(function PFSCopilot({ dict }: PFSCopilotProps) {
           {/* Bilingual */}
           <div className="flex-1 min-w-[260px] max-w-[300px] relative overflow-hidden rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 group" 
                style={{ 
-                 backgroundColor: '#603913',
+                 backgroundColor: '#4d2508',
                  border: '6px solid #f4eda9',
                  transform: 'translateZ(0)'
                }}>
@@ -127,7 +128,7 @@ const PFSCopilot = memo(function PFSCopilot({ dict }: PFSCopilotProps) {
           {/* Secure */}
           <div className="flex-1 min-w-[260px] max-w-[300px] relative overflow-hidden rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 group" 
                style={{ 
-                 backgroundColor: '#603913',
+                 backgroundColor: '#4d2508',
                  border: '6px solid #f4eda9',
                  transform: 'translateZ(0)'
                }}>
@@ -161,7 +162,8 @@ const PFSCopilot = memo(function PFSCopilot({ dict }: PFSCopilotProps) {
             style={{ 
               backgroundColor: '#98a894',
               color: '#ffffff',
-              minWidth: '280px'
+              minWidth: '280px',
+              border: '3px solid #707465'
             }}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#aabaa7'}
             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#98a894'}
