@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import '../globals.css';
 import { notFound } from 'next/navigation';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import GoogleTagManager from '@/components/GoogleTagManager';
 import UTMTracker from '@/components/UTMTracker';
 import { Suspense } from 'react';
 import { Analytics } from '@vercel/analytics/next';
@@ -95,6 +96,17 @@ export default async function LocaleLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body className={inter.className}>
+        {/* Google Tag Manager - noscript fallback */}
+        <noscript>
+          <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-53D883F"
+            height="0" 
+            width="0" 
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+        
+        <GoogleTagManager gtmId="GTM-53D883F" />
         <GoogleAnalytics measurementId="G-QVMLEDCCHV" />
         {/* UTM Tracker for Bing Ads and other campaign tracking */}
         <Suspense fallback={null}>
