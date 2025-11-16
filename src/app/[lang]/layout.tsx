@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import '../globals.css';
 import { notFound } from 'next/navigation';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
 import GoogleTagManager from '@/components/GoogleTagManager';
 import UTMTracker from '@/components/UTMTracker';
 import { Suspense } from 'react';
@@ -107,7 +106,6 @@ export default async function LocaleLayout({
         </noscript>
         
         <GoogleTagManager gtmId="GTM-53D883F" />
-        <GoogleAnalytics measurementId="G-QVMLEDCCHV" />
         {/* UTM Tracker for Bing Ads and other campaign tracking */}
         <Suspense fallback={null}>
           <UTMTracker />

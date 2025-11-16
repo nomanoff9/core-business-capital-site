@@ -63,8 +63,8 @@ const SBACalculator = memo(function SBACalculator({ dict, lang = 'en' }: SBACalc
 
   return (
     <section 
-      className="py-0 px-4"
-      style={{ backgroundColor: '#4d2508' }}
+      className="px-4"
+      style={{ backgroundColor: '#707465', margin: 0, padding: '80px 16px' }}
       role="region"
       aria-labelledby="sba-calculator-heading"
     >
@@ -99,7 +99,7 @@ const SBACalculator = memo(function SBACalculator({ dict, lang = 'en' }: SBACalc
             </label>
             <div className="relative w-4/5">
               <span 
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-2xl font-bold"
+                className="absolute left-5 top-1/2 transform -translate-y-1/2 text-4xl font-bold"
                 style={{ color: '#4d2508' }}
               >
                 $
@@ -109,9 +109,8 @@ const SBACalculator = memo(function SBACalculator({ dict, lang = 'en' }: SBACalc
                 type="text"
                 value={loanAmount ? parseInt(loanAmount).toLocaleString('en-US') : ''}
                 onChange={handleInputChange}
-                className="w-full text-3xl font-bold py-5 pl-10 pr-3 border-4 rounded-xl focus:outline-none focus:ring-4 focus:ring-orange-400 transition-all duration-200 text-center"
+                className="w-full text-5xl font-bold py-6 pl-12 pr-4 border-0 rounded-xl focus:outline-none focus:ring-4 focus:ring-orange-400 transition-all duration-200 text-center"
                 style={{ 
-                  borderColor: '#dd5d20',
                   color: '#4d2508'
                 }}
                 placeholder="0"
@@ -129,7 +128,7 @@ const SBACalculator = memo(function SBACalculator({ dict, lang = 'en' }: SBACalc
             <p className="text-sm font-semibold mb-1" style={{ color: '#4d2508' }}>
               {dict.sbaCalculator.loanTerm}
             </p>
-            <p className="text-2xl font-bold" style={{ color: '#dd5d20' }}>
+            <p className="text-2xl font-black" style={{ color: '#000000' }}>
               10 {dict.sbaCalculator.years}
             </p>
             <p className="text-sm" style={{ color: '#4d2508' }}>
@@ -166,7 +165,7 @@ const SBACalculator = memo(function SBACalculator({ dict, lang = 'en' }: SBACalc
           {/* Column 5: Average Annual Interest */}
           <div 
             className="flex-1 min-w-[260px] max-w-[300px] rounded-2xl text-center shadow-xl p-6 flex flex-col justify-center hover:shadow-2xl transition-all duration-300"
-            style={{ backgroundColor: '#98a894', border: '3px solid #707465' }}
+            style={{ backgroundColor: '#4d2508', border: '3px solid #3d1e08' }}
           >
             <p className="text-sm font-semibold mb-2" style={{ color: '#ffffff' }}>
               {dict.sbaCalculator.avgAnnualInterest}
@@ -205,18 +204,18 @@ const SBACalculator = memo(function SBACalculator({ dict, lang = 'en' }: SBACalc
               href={`/${lang}/pfs-copilot`}
               className="inline-flex items-center justify-center px-12 py-4 text-lg font-extrabold rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 uppercase tracking-wide shadow-lg hover:shadow-2xl"
               style={{ 
-                backgroundColor: '#98a894',
+                backgroundColor: '#4d2508',
                 color: '#ffffff',
-                border: '3px solid #707465',
+                border: '3px solid #3d1e08',
                 minWidth: '250px'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#aabaa7';
-                e.currentTarget.style.borderColor = '#707465';
+                e.currentTarget.style.backgroundColor = '#5d3518';
+                e.currentTarget.style.borderColor = '#3d1e08';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#98a894';
-                e.currentTarget.style.borderColor = '#707465';
+                e.currentTarget.style.backgroundColor = '#4d2508';
+                e.currentTarget.style.borderColor = '#3d1e08';
               }}
             >
               {dict.sbaCalculator.launchPFS}

@@ -10,8 +10,8 @@ interface PFSCopilotProps {
 const PFSCopilot = memo(function PFSCopilot({ dict }: PFSCopilotProps) {
   return (
     <section 
-      className="px-4 pt-20 pb-0"
-      style={{ backgroundColor: '#fff3c7', margin: 0, padding: '80px 16px 0 16px' }}
+      className="px-4"
+      style={{ backgroundColor: '#fff3c7', margin: 0, padding: '80px 16px' }}
       role="region"
       aria-labelledby="pfs-copilot-heading"
     >
