@@ -61,8 +61,8 @@ const Banner = memo(function Banner({ dict }: BannerProps) {
                 width={175} 
                 height={88}
                 className="max-w-full h-auto w-20 sm:w-28 md:w-32 lg:w-40"
-                quality={90}
-                loading="eager"
+                quality={60}
+                loading="lazy"
               />
             </a>
           </div>
@@ -82,8 +82,8 @@ const Banner = memo(function Banner({ dict }: BannerProps) {
                 width={175} 
                 height={88}
                 className="max-w-full h-auto w-20 sm:w-28 md:w-32 lg:w-40"
-                quality={90}
-                loading="eager"
+                quality={60}
+                loading="lazy"
               />
             </a>
           </div>
@@ -101,8 +101,8 @@ const Banner = memo(function Banner({ dict }: BannerProps) {
                 width={175} 
                 height={88}
                 className="max-w-full h-auto w-20 sm:w-28 md:w-32 lg:w-40"
-                quality={90}
-                loading="eager"
+                quality={60}
+                loading="lazy"
               />
             </div>
           </div>

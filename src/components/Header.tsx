@@ -134,6 +134,7 @@ export default function Header() {
                   style={{ width: 'clamp(180px, 25vw, 280px)', height: 'auto' }}
                   className="cursor-pointer h-full max-h-14 min-[480px]:max-h-16 sm:max-h-14 min-[990px]:max-h-20 w-auto"
                   priority
+                  quality={60}
                 />
               </Link>
             </div>
