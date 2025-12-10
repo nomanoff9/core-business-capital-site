@@ -63,7 +63,7 @@ export default async function ServicesPage({
         <CustomerReviews dict={dict} />
       </LazyComponent>
       <LazyComponent>
-        <Footer dict={dict} />
+        <Footer dict={dict} lang={lang} />
       </LazyComponent>
     </>
   );

@@ -74,6 +74,14 @@ export type Dict = {
     copyright: string;
     email: string;
     privacy: string;
+    servicesTitle: string;
+    sbaAssistanceTitle: string;
+    sbaCalculator: string;
+    pfsCopilot: string;
+    contactTitle: string;
+    emailLink: string;
+    callLink: string;
+    followUs: string;
   };
   nav: {
     home: string;

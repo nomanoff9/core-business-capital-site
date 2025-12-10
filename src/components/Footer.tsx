@@ -5,9 +5,10 @@ import type { Dict } from '@/types/dict';
 
 interface FooterProps {
   dict: Dict;
+  lang?: string;
 }
 
-export default function Footer({ dict }: FooterProps) {
+export default function Footer({ dict, lang = 'en' }: FooterProps) {
   return (
     <footer className="text-[#3d2914] py-12 px-4 pt-0" style={{ backgroundColor: '#e2a884' }}>
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 min-[990px]:grid-cols-4 gap-8">
@@ -34,29 +35,29 @@ export default function Footer({ dict }: FooterProps) {
 
         {/* Middle Column - Services Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Services</h3>
+          <h3 className="text-lg font-semibold mb-4">{dict.footer.servicesTitle}</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/en/services/sba" className="hover:text-[#8b5a00] transition-colors duration-200">U.S. SBA Loans</Link></li>
-            <li><Link href="/en/services/term" className="hover:text-[#8b5a00] transition-colors duration-200">Term Loans</Link></li>
-            <li><Link href="/en/services/equipment" className="hover:text-[#8b5a00] transition-colors duration-200">Equipment Financing</Link></li>
-            <li><Link href="/en/services/working" className="hover:text-[#8b5a00] transition-colors duration-200">Working Capital</Link></li>
-            <li><Link href="/en/services/line" className="hover:text-[#8b5a00] transition-colors duration-200">Lines of Credit</Link></li>
-            <li><Link href="/en/services/invoice" className="hover:text-[#8b5a00] transition-colors duration-200">Invoice Financing</Link></li>
-            <li><Link href="/en/services/payroll" className="hover:text-[#8b5a00] transition-colors duration-200">Payroll Financing</Link></li>
-            <li><Link href="/en/services/cash" className="hover:text-[#8b5a00] transition-colors duration-200">Business Cash Advances</Link></li>
+            <li><Link href={`/${lang}/services/sba`} className="hover:text-[#8b5a00] transition-colors duration-200">{dict.services.sba}</Link></li>
+            <li><Link href={`/${lang}/services/term`} className="hover:text-[#8b5a00] transition-colors duration-200">{dict.services.term}</Link></li>
+            <li><Link href={`/${lang}/services/equipment`} className="hover:text-[#8b5a00] transition-colors duration-200">{dict.services.equipment}</Link></li>
+            <li><Link href={`/${lang}/services/working`} className="hover:text-[#8b5a00] transition-colors duration-200">{dict.services.working}</Link></li>
+            <li><Link href={`/${lang}/services/line`} className="hover:text-[#8b5a00] transition-colors duration-200">{dict.services.line}</Link></li>
+            <li><Link href={`/${lang}/services/invoice`} className="hover:text-[#8b5a00] transition-colors duration-200">{dict.services.invoice}</Link></li>
+            <li><Link href={`/${lang}/services/payroll`} className="hover:text-[#8b5a00] transition-colors duration-200">{dict.services.payroll}</Link></li>
+            <li><Link href={`/${lang}/services/cash`} className="hover:text-[#8b5a00] transition-colors duration-200">{dict.services.cash}</Link></li>
           </ul>
         </div>
 
         {/* SBA Assistance Column */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">SBA Assistance</h3>
+          <h3 className="text-lg font-semibold mb-4">{dict.footer.sbaAssistanceTitle}</h3>
           <ul className="space-y-2 text-sm">
             <li>
               <Link 
-                href="/en/sba-calculator" 
+                href={`/${lang}/sba-calculator`} 
                 className="hover:text-[#8b5a00] transition-colors duration-200"
               >
-                SBA Calculator
+                {dict.footer.sbaCalculator}
               </Link>
             </li>
             <li>
@@ -66,7 +67,7 @@ export default function Footer({ dict }: FooterProps) {
                 rel="noopener noreferrer"
                 className="hover:text-[#8b5a00] transition-colors duration-200"
               >
-                PFS Copilot
+                {dict.footer.pfsCopilot}
               </a>
             </li>
           </ul>
@@ -74,20 +75,20 @@ export default function Footer({ dict }: FooterProps) {
 
         {/* Right Column - Contact and Social */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Contact & Social</h3>
+          <h3 className="text-lg font-semibold mb-4">{dict.footer.contactTitle}</h3>
           <ul className="space-y-3 text-sm">
             <li>
               <a href="mailto:info@corebusinesscapital.com" className="hover:text-[#8b5a00] transition-colors duration-200">
-                Email
+                {dict.footer.emailLink}
               </a>
             </li>
             <li>
               <a href="tel:17202223396" className="hover:text-[#8b5a00] transition-colors duration-200" suppressHydrationWarning>
-                Call (720) 222-3396
+                {dict.footer.callLink}
               </a>
             </li>
             <li>
-              <Link href="/privacy" className="hover:text-[#8b5a00] transition-colors duration-200">
+              <Link href={`/${lang}/privacy`} className="hover:text-[#8b5a00] transition-colors duration-200">
                 {dict.footer.privacy}
               </Link>
             </li>
@@ -95,7 +96,7 @@ export default function Footer({ dict }: FooterProps) {
           
           {/* Social Media Icons */}
           <div className="mt-6">
-            <h4 className="text-sm font-semibold mb-3">Follow Us</h4>
+            <h4 className="text-sm font-semibold mb-3">{dict.footer.followUs}</h4>
             <div className="flex space-x-4">
               <a 
                 href="https://x.com/corebusinesscap" 

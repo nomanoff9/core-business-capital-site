@@ -72,7 +72,15 @@
   "footer": {
     "copyright": "© 2025 Core Business Capital. Atendiendo a los 50 estados.",
     "email": "nicholas@corebusinesscapital.com",
-    "privacy": "Política de Privacidad"
+    "privacy": "Política de Privacidad",
+    "servicesTitle": "Servicios",
+    "sbaAssistanceTitle": "Asistencia SBA",
+    "sbaCalculator": "Calculadora SBA",
+    "pfsCopilot": "Copiloto EFP",
+    "contactTitle": "Contacto y Redes",
+    "emailLink": "Correo Electrónico",
+    "callLink": "Llamar (720) 222-3396",
+    "followUs": "Síguenos"
   },
   "nav": {
     "home": "Inicio",

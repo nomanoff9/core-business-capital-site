@@ -72,7 +72,15 @@
   "footer": {
     "copyright": "© 2025 Core Business Capital. Serving all 50 states.",
     "email": "nicholas@corebusinesscapital.com",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "servicesTitle": "Services",
+    "sbaAssistanceTitle": "SBA Assistance",
+    "sbaCalculator": "SBA Calculator",
+    "pfsCopilot": "PFS Copilot",
+    "contactTitle": "Contact & Social",
+    "emailLink": "Email",
+    "callLink": "Call (720) 222-3396",
+    "followUs": "Follow Us"
   },
   "nav": {
     "home": "Home",

@@ -116,7 +116,7 @@ export default async function Home({
       <SBACalculator dict={dict} lang={lang} />
     </LazyComponent>
     <LazyComponent>
-      <Footer dict={dict} />
+      <Footer dict={dict} lang={lang} />
     </LazyComponent>
   </>
 );
