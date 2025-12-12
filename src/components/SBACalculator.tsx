@@ -1,6 +1,5 @@
 'use client';
 import { memo, useState, useEffect } from 'react';
-import Link from 'next/link';
 import type { Dict } from '@/types/dict';
 
 interface SBACalculatorProps {
@@ -200,8 +199,10 @@ const SBACalculator = memo(function SBACalculator({ dict, lang = 'en' }: SBACalc
             
             <span className="text-white text-lg font-semibold">{dict.sbaCalculator.or}</span>
             
-            <Link
-              href={`/${lang}/pfs-copilot`}
+            <a
+              href={`https://pfs.corebusinesscapital.com/${lang}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-12 py-4 text-lg font-extrabold rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 uppercase tracking-wide shadow-lg hover:shadow-2xl"
               style={{ 
                 backgroundColor: '#4d2508',
@@ -219,7 +220,7 @@ const SBACalculator = memo(function SBACalculator({ dict, lang = 'en' }: SBACalc
               }}
             >
               {dict.sbaCalculator.launchPFS}
-            </Link>
+            </a>
           </div>
           
           {/* Disclaimer */}
