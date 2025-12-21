@@ -145,10 +145,10 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
         </div>
 
         {/* Mobile Layout: Single Column (Below 480px) - Optimized for above-the-fold */}
-        <div className="block min-[480px]:hidden space-y-6">
+        <div className="block min-[480px]:hidden space-y-4">
           
           {/* Hero Statement - Compact */}
-          <div className="text-center space-y-2">
+          <div className="text-center space-y-1">
             <h1 
               className="text-2xl font-bold leading-tight"
               style={{ color: '#ffffff', fontSize: '1.5rem', lineHeight: '1.3' }}
