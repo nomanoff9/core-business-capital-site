@@ -3,7 +3,6 @@ export type Dict = {
   hero_subtitle: string;
   cta_apply: string;
   credit_disclaimer: string;
-  credit_disclaimer_note: string;
   services: {
     title: string;
     sba: string;

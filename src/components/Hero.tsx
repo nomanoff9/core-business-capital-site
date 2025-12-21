@@ -138,10 +138,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
             {/* Credit Disclaimer */}
             <div className="mt-4 max-w-md">
               <p className="text-sm" style={{ color: '#ffffff', opacity: 0.85 }}>
-                {dict.credit_disclaimer || 'Applying will not affect your credit score. No hard credit inquiries*'}
-              </p>
-              <p className="text-xs mt-1" style={{ color: '#ffffff', opacity: 0.7 }}>
-                {dict.credit_disclaimer_note || '*U.S. SBA Loans will require a hard credit check before funding'}
+                {dict.credit_disclaimer || 'Applying will not affect your credit score'}
               </p>
             </div>
           </div>
@@ -219,10 +216,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
             {/* Credit Disclaimer - Mobile */}
             <div className="text-center px-4 mt-2">
               <p className="text-xs" style={{ color: '#ffffff', opacity: 0.85 }}>
-                {dict.credit_disclaimer || 'Applying will not affect your credit score. No hard credit inquiries*'}
-              </p>
-              <p className="text-xs mt-1" style={{ color: '#ffffff', opacity: 0.7 }}>
-                {dict.credit_disclaimer_note || '*U.S. SBA Loans will require a hard credit check before funding'}
+                {dict.credit_disclaimer || 'Applying will not affect your credit score'}
               </p>
             </div>
           </div>
