@@ -168,7 +168,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           </div>
 
           {/* Hero Image Centered - Compact aspect ratio */}
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-8">
             <div className="relative w-full max-w-sm">
               <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden shadow-xl">
                 <NextImage
@@ -193,7 +193,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           </div>
 
           {/* Apply Now Button - Compact */}
-          <div className="flex flex-col items-center mb-6">
+          <div className="flex flex-col items-center mb-6 mt-2">
             <a 
               href={applyURL}
               target="_blank" 
@@ -215,7 +215,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
             </a>
             {/* Credit Disclaimer - Mobile */}
             <div className="text-center px-4 mt-2">
-              <p className="text-xs" style={{ color: '#ffffff', opacity: 0.85 }}>
+              <p className="text-[10px]" style={{ color: '#ffffff', opacity: 0.85 }}>
                 {dict.credit_disclaimer || 'Applying will not affect your credit score'}
               </p>
             </div>
