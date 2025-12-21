@@ -115,7 +115,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           </div>
 
           {/* Column 1 Row 2: Apply Now Button */}
-          <div className="flex items-start justify-start" style={{ marginLeft: '8px' }}>
+          <div className="flex flex-col items-start justify-start" style={{ marginLeft: '8px' }}>
             <a 
               href={applyURL}
               target="_blank" 
@@ -135,6 +135,15 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
                 {ctaText}
               </div>
             </a>
+            {/* Credit Disclaimer */}
+            <div className="mt-4 max-w-md">
+              <p className="text-sm" style={{ color: '#ffffff', opacity: 0.85 }}>
+                {dict.credit_disclaimer || 'Applying will not affect your credit score. No hard credit inquiries*'}
+              </p>
+              <p className="text-xs mt-1" style={{ color: '#ffffff', opacity: 0.7 }}>
+                {dict.credit_disclaimer_note || '*U.S. SBA Loans will require a hard credit check before funding'}
+              </p>
+            </div>
           </div>
         </div>
 
@@ -187,7 +196,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           </div>
 
           {/* Apply Now Button - Compact */}
-          <div className="flex justify-center mb-6">
+          <div className="flex flex-col items-center mb-6">
             <a 
               href={applyURL}
               target="_blank" 
@@ -197,7 +206,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
               itemProp="url"
             >
               <div
-                className="min-w-[140px] h-[50px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4 text-center text-sm mt-4 mb-6"
+                className="min-w-[140px] h-[50px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4 text-center text-sm mt-4 mb-4"
                 style={ctaButtonStyles}
                 onMouseEnter={(e) => handleCtaHover(e, true)}
                 onMouseLeave={(e) => handleCtaHover(e, false)}
@@ -207,6 +216,15 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
                 {ctaText}
               </div>
             </a>
+            {/* Credit Disclaimer - Mobile */}
+            <div className="text-center px-4 mt-2">
+              <p className="text-xs" style={{ color: '#ffffff', opacity: 0.85 }}>
+                {dict.credit_disclaimer || 'Applying will not affect your credit score. No hard credit inquiries*'}
+              </p>
+              <p className="text-xs mt-1" style={{ color: '#ffffff', opacity: 0.7 }}>
+                {dict.credit_disclaimer_note || '*U.S. SBA Loans will require a hard credit check before funding'}
+              </p>
+            </div>
           </div>
 
         </div>
