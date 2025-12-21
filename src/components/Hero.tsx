@@ -63,7 +63,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
       />
 
       {/* Responsive Grid Container */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 min-[480px]:pt-8 pb-12 min-[480px]:pb-16 sm:py-16">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 min-[480px]:pt-8 pb-12 min-[480px]:pb-16 sm:py-16">
         
         {/* Desktop/Tablet Layout: 2x2 Grid (480px and above) */}
         <div className="hidden min-[480px]:grid grid-cols-2 grid-rows-2 gap-8 min-h-[70vh]">
