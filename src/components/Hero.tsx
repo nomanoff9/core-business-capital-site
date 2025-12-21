@@ -193,7 +193,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           </div>
 
           {/* Apply Now Button - Compact */}
-          <div className="flex flex-col items-center mb-6 mt-2">
+          <div className="flex flex-col items-center mb-6 mt-6">
             <a 
               href={applyURL}
               target="_blank" 
@@ -203,7 +203,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
               itemProp="url"
             >
               <div
-                className="min-w-[140px] h-[50px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4 text-center text-sm mt-4 mb-4"
+                className="min-w-[140px] h-[50px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4 text-center text-sm mb-4"
                 style={ctaButtonStyles}
                 onMouseEnter={(e) => handleCtaHover(e, true)}
                 onMouseLeave={(e) => handleCtaHover(e, false)}
