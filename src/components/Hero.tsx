@@ -69,7 +69,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
         <div className="hidden min-[480px]:grid grid-cols-2 grid-rows-2 gap-8 min-h-[70vh]">
           
           {/* Column 1 Row 1: Hero Statement */}
-          <div className="flex flex-col justify-center space-y-6" style={{ marginLeft: '8px' }}>
+          <div className="flex flex-col justify-center space-y-3" style={{ marginLeft: '8px' }}>
             <h1 
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
               style={{ color: '#ffffff', fontSize: 'clamp(1.5rem, 5vw, 3.75rem)' }}
@@ -148,7 +148,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
         <div className="block min-[480px]:hidden space-y-6">
           
           {/* Hero Statement - Compact */}
-          <div className="text-center space-y-3">
+          <div className="text-center space-y-2">
             <h1 
               className="text-2xl font-bold leading-tight"
               style={{ color: '#ffffff', fontSize: '1.5rem', lineHeight: '1.3' }}
