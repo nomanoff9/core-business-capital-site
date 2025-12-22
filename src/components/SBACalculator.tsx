@@ -12,7 +12,7 @@ const SBACalculator = memo(function SBACalculator({ dict, lang = 'en' }: SBACalc
   const [monthlyPayment, setMonthlyPayment] = useState<number>(0);
   const [averageAnnualInterest, setAverageAnnualInterest] = useState<number>(0);
 
-  const APR = 0.095; // 9.5% (Prime 7.0% + 2.5%)
+  const APR = 0.0925; // 9.25% (Prime 6.75% + 2.5%)
   const TERM_YEARS = 10;
   const TERM_MONTHS = TERM_YEARS * 12;
 
@@ -144,7 +144,7 @@ const SBACalculator = memo(function SBACalculator({ dict, lang = 'en' }: SBACalc
               {dict.sbaCalculator.interestRate}
             </p>
             <p className="text-2xl font-bold" style={{ color: '#4d2508' }}>
-              9.5% APR
+              9.25% APR
             </p>
           </div>
 

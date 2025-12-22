@@ -93,7 +93,7 @@
   "sbaCalculator": {
     "title": "Calculadora de Préstamos SBA de EE.UU.",
     "subtitle": "Calcule sus pagos mensuales estimados para un préstamo SBA de 10 años",
-    "currentRate": "Tasa Actual: WSJ Prime (7.00%) + 2.5% = 9.5% APR",
+    "currentRate": "Tasa Actual: WSJ Prime (6.75%) + 2.5% = 9.25% APR",
     "enterAmount": "Ingrese monto hasta $5,000,000",
     "loanTerm": "Plazo del Préstamo",
     "years": "Años",
