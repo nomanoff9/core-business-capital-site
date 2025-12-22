@@ -52,7 +52,7 @@ export default function CustomerReviews({ dict, className = '' }: CustomerReview
 
   return (
     <section 
-      className={`py-16 overflow-hidden ${className}`}
+      className={`pt-0 pb-12 min-[480px]:pt-0 min-[480px]:pb-16 overflow-hidden ${className}`}
       style={{ backgroundColor: '#4d2508' }}
       aria-label="Customer Reviews Carousel"
     >

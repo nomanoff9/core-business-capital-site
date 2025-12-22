@@ -79,8 +79,8 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
         />
       )}
       <section 
-        className="py-16 px-4" 
-        style={{ backgroundColor: '#fff3c7', marginTop: '8px' }}
+        className="pt-6 pb-0 min-[480px]:pt-16 min-[480px]:pb-0 px-4" 
+        style={{ backgroundColor: '#fff3c7', marginTop: '0px' }}
         role="main"
         aria-labelledby="services-heading"
         itemScope

@@ -63,15 +63,15 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
       />
 
       {/* Responsive Grid Container */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 min-[480px]:pt-8 pb-12 min-[480px]:pb-16 sm:py-16">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 min-[480px]:pt-8 pb-4 min-[480px]:pb-16 sm:py-16">
         
         {/* Desktop/Tablet Layout: 2x2 Grid (480px and above) */}
         <div className="hidden min-[480px]:grid grid-cols-2 grid-rows-2 gap-8 min-h-[70vh]">
           
           {/* Column 1 Row 1: Hero Statement */}
-          <div className="flex flex-col justify-center space-y-1" style={{ marginLeft: '8px' }}>
+          <div className="flex flex-col justify-center gap-0" style={{ marginLeft: '8px' }}>
             <h1 
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight m-0 mb-1"
               style={{ color: '#ffffff', fontSize: 'clamp(1.5rem, 5vw, 3.75rem)' }}
               itemScope
               itemType="https://schema.org/Organization"
@@ -145,12 +145,12 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
         </div>
 
         {/* Mobile Layout: Single Column (Below 480px) - Optimized for above-the-fold */}
-        <div className="block min-[480px]:hidden space-y-4">
+        <div className="block min-[480px]:hidden pt-0 mt-0">
           
           {/* Hero Statement - Compact */}
-          <div className="text-center space-y-1">
+          <div className="text-center pt-0 mt-0">
             <h1 
-              className="text-2xl font-bold leading-tight"
+              className="text-2xl font-bold leading-tight m-0 p-0"
               style={{ color: '#ffffff', fontSize: '1.5rem', lineHeight: '1.3' }}
               itemScope
               itemType="https://schema.org/Organization"
@@ -159,7 +159,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
             </h1>
 
             <p
-              className="text-sm leading-snug px-2"
+              className="text-sm leading-snug px-2 mt-1"
               style={{ color: '#ffffff', opacity: 0.9, lineHeight: '1.4' }}
               itemProp="description"
             >
@@ -168,9 +168,9 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           </div>
 
           {/* Hero Image Centered - Compact aspect ratio */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mt-4 pb-8">
             <div className="relative w-full max-w-sm">
-              <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden shadow-xl">
+              <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden shadow-lg">
                 <NextImage
                   src="/images/hero-bg.jpg"
                   alt="Business professionals discussing funding solutions - Core Business Capital team meeting"
@@ -193,7 +193,10 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           </div>
 
           {/* Apply Now Button - Compact */}
-          <div className="flex flex-col items-center mb-6 mt-6">
+          <div 
+            className="flex flex-col items-center mb-6 relative z-10"
+            style={{ marginTop: '16px' }}
+          >
             <a 
               href={applyURL}
               target="_blank" 
@@ -203,7 +206,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
               itemProp="url"
             >
               <div
-                className="min-w-[140px] h-[50px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4 text-center text-sm mb-4"
+                className="min-w-[140px] h-[50px] flex items-center justify-center rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer px-4 text-center text-sm"
                 style={ctaButtonStyles}
                 onMouseEnter={(e) => handleCtaHover(e, true)}
                 onMouseLeave={(e) => handleCtaHover(e, false)}
