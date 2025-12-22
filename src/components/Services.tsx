@@ -86,7 +86,7 @@ const Services = memo(function Services({ dict, showSchema = false, lang = 'en' 
         itemScope
         itemType="https://schema.org/Service"
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto px-0 min-[480px]:px-6 sm:px-8 lg:px-12">
           <h2
             id="services-heading"
             className="text-3xl lg:text-4xl font-bold text-center mb-12 animate-fade-in"

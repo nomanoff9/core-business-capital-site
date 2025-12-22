@@ -43,6 +43,13 @@ section {
   padding: 0;
 }
 
+/* Reset list styling - Remove default browser padding */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 /* Reset h1 default browser margins */
 h1 {
   margin: 0;
