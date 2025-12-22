@@ -195,7 +195,7 @@ const Hero = memo(function Hero({ dict }: HeroProps) {
           {/* Apply Now Button - Compact */}
           <div 
             className="flex flex-col items-center mb-6 relative z-10"
-            style={{ marginTop: '16px' }}
+            style={{ marginTop: '8px' }}
           >
             <a 
               href={applyURL}
