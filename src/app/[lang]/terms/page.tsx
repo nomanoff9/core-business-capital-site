@@ -53,7 +53,7 @@ export default async function TermsOfServicePage({
 
   return (
     <>
-      <Header dict={dict} lang={lang} />
+      <Header />
       <main className="min-h-screen bg-gradient-to-b from-[#fdf6ef] to-[#f5e6d3] pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-[#3d1e08] mb-8">
