@@ -92,6 +92,11 @@ export default function Footer({ dict, lang = 'en' }: FooterProps) {
                 {dict.footer.privacy}
               </Link>
             </li>
+            <li>
+              <Link href={`/${lang}/terms`} className="hover:text-[#8b5a00] transition-colors duration-200">
+                {dict.footer.terms}
+              </Link>
+            </li>
           </ul>
           
           {/* Social Media Icons */}

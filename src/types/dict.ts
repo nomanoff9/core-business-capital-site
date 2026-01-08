@@ -75,6 +75,7 @@ export type Dict = {
     copyright: string;
     email: string;
     privacy: string;
+    terms: string;
     servicesTitle: string;
     sbaAssistanceTitle: string;
     sbaCalculator: string;
