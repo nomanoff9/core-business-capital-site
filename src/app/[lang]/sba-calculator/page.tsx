@@ -12,7 +12,6 @@ export async function generateMetadata({
   params: Promise<{ lang: string }> 
 }): Promise<Metadata> {
   const { lang } = await params;
-  const dict = await getDictionary(lang as 'en' | 'es');
   
   const isEnglish = lang === 'en';
   

@@ -5,12 +5,52 @@ import Negotiator from 'negotiator';
 const locales = ['en', 'es'];
 const defaultLocale = 'en';
 
-// Map of old URLs to new URLs (add any 404s found in GSC here)
+// Map of old URLs to new URLs (from Tag Manager report - untagged legacy URLs)
+// These are crawled/accessed but don't have GTM tags - redirect to tagged equivalents
 const permanentRedirects: Record<string, string> = {
-  // Old blog redirects to home (blog may be added in future)
+  // Blog (may be added in future)
   '/blog': '/en',
   '/blog/': '/en',
-  // Add more redirects as found in Google Search Console
+  
+  // Service pages - redirect to new service URLs
+  '/business-line-of-credit': '/en/services/line',
+  '/business-term-loans': '/en/services/term',
+  '/equipment-financing': '/en/services/equipment',
+  '/invoicefinancing': '/en/services/invoice',
+  '/merchant-cash-advance': '/en/services/cash',
+  '/sba-loans': '/en/services/sba',
+  '/working-capital': '/en/services/working',
+  '/get-cash': '/en/services/cash',
+  
+  // Other legacy pages
+  '/contact-us': '/en', // Redirect to home (or create contact page)
+  '/industries': '/en/services',
+  '/payment-processing': '/en/services',
+  '/ppp': '/en', // PPP program ended - redirect to home
+  '/tobacco-and-vape-shop-business-loan': '/en/services',
+  '/unsubscribe': '/en', // No unsubscribe page in new site
+  
+  // Legal pages
+  '/privacy': '/en/privacy',
+  '/terms': '/en/terms',
+  
+  // Trailing slash versions
+  '/business-line-of-credit/': '/en/services/line',
+  '/business-term-loans/': '/en/services/term',
+  '/equipment-financing/': '/en/services/equipment',
+  '/invoicefinancing/': '/en/services/invoice',
+  '/merchant-cash-advance/': '/en/services/cash',
+  '/sba-loans/': '/en/services/sba',
+  '/working-capital/': '/en/services/working',
+  '/get-cash/': '/en/services/cash',
+  '/contact-us/': '/en',
+  '/industries/': '/en/services',
+  '/payment-processing/': '/en/services',
+  '/ppp/': '/en',
+  '/tobacco-and-vape-shop-business-loan/': '/en/services',
+  '/unsubscribe/': '/en',
+  '/privacy/': '/en/privacy',
+  '/terms/': '/en/terms',
 };
 
 function getLocale(request: NextRequest): string {

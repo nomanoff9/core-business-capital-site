@@ -62,10 +62,11 @@ const SBACalculator = memo(function SBACalculator({ dict, lang = 'en' }: SBACalc
 
   return (
     <section 
-      className="px-4"
+      className="px-4 sba-calculator-section"
       style={{ backgroundColor: '#707465', margin: 0, padding: '80px 16px' }}
       role="region"
       aria-labelledby="sba-calculator-heading"
+      data-gtm="sba-calculator"
     >
       <div className="max-w-7xl mx-auto">
         {/* Row 1: Header */}
