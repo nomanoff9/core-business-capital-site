@@ -3,6 +3,26 @@
   "hero_subtitle": "Desde 2016, Core Business Capital ha ayudado a miles a obtener Préstamos SBA, Préstamos a Plazo y más en todos los 50 estados.",
   "cta_apply": "Aplicar Ahora",
   "credit_disclaimer": "Aplicar no afectará su puntaje de crédito",
+  "contact": {
+    "title": "Contáctenos",
+    "subtitle": "¿Tiene preguntas sobre financiamiento? Estamos aquí para ayudarle. Complete el formulario a continuación y nos comunicaremos con usted lo antes posible.",
+    "alternativeTitle": "¿Prefiere Contactarnos Directamente?",
+    "alternativeSubtitle": "No dude en llamarnos o enviarnos un correo electrónico en cualquier momento.",
+    "form": {
+      "name": "Nombre Completo",
+      "namePlaceholder": "Ingrese su nombre completo",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "Ingrese su correo electrónico",
+      "phone": "Número de Teléfono",
+      "phonePlaceholder": "Ingrese su número de teléfono",
+      "message": "Mensaje (Opcional)",
+      "messagePlaceholder": "Cuéntenos cómo podemos ayudarle...",
+      "submit": "Enviar Mensaje",
+      "submitting": "Enviando...",
+      "successMessage": "¡Gracias por contactarnos! Nos comunicaremos con usted dentro de las próximas 24 horas.",
+      "errorMessage": "Algo salió mal. Por favor intente de nuevo o contáctenos directamente."
+    }
+  },
   "services": {
     "title": "Nuestros Programas de Financiamiento",
     "sba": "Préstamos SBA de EE.UU.",
@@ -72,7 +92,7 @@
   },
   "footer": {
     "copyright": "© 2025 Core Business Capital. Atendiendo a los 50 estados.",
-    "email": "nicholas@corebusinesscapital.com",
+    "email": "info@corebusinesscapital.com",
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio",
     "servicesTitle": "Servicios",
@@ -80,6 +100,7 @@
     "sbaCalculator": "Calculadora SBA",
     "pfsCopilot": "Copiloto EFP",
     "contactTitle": "Contacto y Redes",
+    "contactLink": "Contáctenos",
     "emailLink": "Correo Electrónico",
     "callLink": "Llamar (720) 222-3396",
     "followUs": "Síguenos"

@@ -22,6 +22,15 @@ const customerReviews = [
   { id: 10, src: '/images/reviews/review-10.jpg', alt: 'Five star review from Brian V. - Much easier than working with a big bank' },
   { id: 11, src: '/images/reviews/review-11.jpg', alt: 'Five star review from Triple S. - I had the money in my account in 1 week, the best at what he does' },
   { id: 12, src: '/images/reviews/review-12.jpg', alt: 'Five star review from Eric M. - Exceeded expectations on our SBA loan' },
+  { id: 13, src: '/images/reviews/review-13.jpg', alt: 'Five star customer review' },
+  { id: 14, src: '/images/reviews/review-14.jpg', alt: 'Five star customer review' },
+  { id: 15, src: '/images/reviews/review-15.jpg', alt: 'Five star customer review' },
+  { id: 16, src: '/images/reviews/review-16.jpg', alt: 'Five star customer review' },
+  { id: 17, src: '/images/reviews/review-17.jpg', alt: 'Five star customer review' },
+  { id: 18, src: '/images/reviews/review-18.jpg', alt: 'Five star customer review' },
+  { id: 19, src: '/images/reviews/review-19.jpg', alt: 'Five star customer review' },
+  { id: 20, src: '/images/reviews/review-20.jpg', alt: 'Five star customer review' },
+  { id: 21, src: '/images/reviews/review-21.jpg', alt: 'Five star customer review' },
 ];
 
 export default function CustomerReviews({ dict, className = '' }: CustomerReviewsProps) {

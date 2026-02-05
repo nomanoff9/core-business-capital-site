@@ -15,8 +15,8 @@ export async function generateMetadata({
   const baseUrl = 'https://corebusinesscapital.com';
   
   const title = lang === 'es' 
-    ? 'Términos de Servicio - Core Business Capital'
-    : 'Terms of Service - Core Business Capital';
+    ? 'Términos de Servicio | Core Business Capital'
+    : 'Terms of Service | Core Business Capital';
   const description = lang === 'es'
     ? 'Lea nuestros términos de servicio para entender las condiciones de uso de los servicios de Core Business Capital.'
     : 'Read our terms of service to understand the conditions for using Core Business Capital services.';
@@ -32,6 +32,28 @@ export async function generateMetadata({
         'es': `${baseUrl}/es/terms`,
         'x-default': `${baseUrl}/en/terms`,
       },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${baseUrl}/${lang}/terms`,
+      siteName: 'Core Business Capital',
+      type: 'website',
+      locale: lang === 'es' ? 'es_US' : 'en_US',
+      images: [
+        {
+          url: `${baseUrl}/images/hero-bg.jpg`,
+          width: 1200,
+          height: 630,
+          alt: 'Core Business Capital Terms of Service',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`${baseUrl}/images/hero-bg.jpg`],
     },
     robots: {
       index: true,

@@ -2,6 +2,26 @@
   "hero_title": "Secure the Best Funding for Your Small Business",
   "hero_subtitle": "Since 2016, Core Business Capital has helped thousands secure SBA Loans, Term Loans, and more across all 50 states.",
   "cta_apply": "Apply Now",
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Have questions about financing? We're here to help. Fill out the form below and we'll get back to you as soon as possible.",
+    "alternativeTitle": "Prefer to Reach Us Directly?",
+    "alternativeSubtitle": "Feel free to call or email us anytime.",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter your phone number",
+      "message": "Message (Optional)",
+      "messagePlaceholder": "Tell us how we can help you...",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "successMessage": "Thank you for contacting us! We'll get back to you within 24 hours.",
+      "errorMessage": "Something went wrong. Please try again or contact us directly."
+    }
+  },
   "services": {
     "title": "Our Financing Programs",
     "sba_desc": "Our U.S. SBA Loans provide government-backed funding up to $5 million for small businesses in Colorado and nationwide, with competitive rates since 2016. Ideal for expansion, real estate, or working capital needs.",
@@ -30,8 +50,8 @@
     "states": "Serving all 50 states since 2016"
   },
   "footer": {
-    "copyright": "© 2025 Core Business Capital. Serving all 50 states.",
-    "email": "nicholas@corebusinesscapital.com",
+    "copyright": "© 2026 Core Business Capital. Serving all 50 states.",
+    "email": "info@corebusinesscapital.com",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   }

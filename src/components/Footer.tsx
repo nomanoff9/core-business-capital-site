@@ -78,6 +78,11 @@ export default function Footer({ dict, lang = 'en' }: FooterProps) {
           <h3 className="text-lg font-semibold mb-4">{dict.footer.contactTitle}</h3>
           <ul className="space-y-3 text-sm">
             <li>
+              <Link href={`/${lang}/contact`} className="hover:text-[#8b5a00] transition-colors duration-200">
+                {dict.footer.contactLink}
+              </Link>
+            </li>
+            <li>
               <a href="mailto:info@corebusinesscapital.com" className="hover:text-[#8b5a00] transition-colors duration-200">
                 {dict.footer.emailLink}
               </a>

@@ -3,6 +3,26 @@ export type Dict = {
   hero_subtitle: string;
   cta_apply: string;
   credit_disclaimer: string;
+  contact: {
+    title: string;
+    subtitle: string;
+    alternativeTitle: string;
+    alternativeSubtitle: string;
+    form: {
+      name: string;
+      namePlaceholder: string;
+      email: string;
+      emailPlaceholder: string;
+      phone: string;
+      phonePlaceholder: string;
+      message: string;
+      messagePlaceholder: string;
+      submit: string;
+      submitting: string;
+      successMessage: string;
+      errorMessage: string;
+    };
+  };
   services: {
     title: string;
     sba: string;
@@ -81,6 +101,7 @@ export type Dict = {
     sbaCalculator: string;
     pfsCopilot: string;
     contactTitle: string;
+    contactLink: string;
     emailLink: string;
     callLink: string;
     followUs: string;

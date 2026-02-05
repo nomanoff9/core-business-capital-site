@@ -15,8 +15,8 @@ export async function generateMetadata({
   const baseUrl = 'https://corebusinesscapital.com';
   
   const title = lang === 'es' 
-    ? 'Política de Privacidad - Core Business Capital'
-    : 'Privacy Policy - Core Business Capital';
+    ? 'Política de Privacidad | Core Business Capital'
+    : 'Privacy Policy | Core Business Capital';
   const description = lang === 'es'
     ? 'Lea nuestra política de privacidad para entender cómo Core Business Capital protege y maneja su información personal.'
     : 'Read our privacy policy to understand how Core Business Capital protects and handles your personal information.';
@@ -32,6 +32,28 @@ export async function generateMetadata({
         'es': `${baseUrl}/es/privacy`,
         'x-default': `${baseUrl}/en/privacy`,
       },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${baseUrl}/${lang}/privacy`,
+      siteName: 'Core Business Capital',
+      type: 'website',
+      locale: lang === 'es' ? 'es_US' : 'en_US',
+      images: [
+        {
+          url: `${baseUrl}/images/hero-bg.jpg`,
+          width: 1200,
+          height: 630,
+          alt: 'Core Business Capital Privacy Policy',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`${baseUrl}/images/hero-bg.jpg`],
     },
     robots: {
       index: true,

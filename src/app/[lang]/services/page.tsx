@@ -15,12 +15,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   if (!['en', 'es'].includes(lang)) notFound();
-  const dict = await getDictionary(lang as 'en' | 'es');
   const baseUrl = 'https://corebusinesscapital.com';
   
+  const title = lang === 'es'
+    ? 'Servicios de Financiamiento Empresarial | Core Business Capital'
+    : 'Business Financing Services | Core Business Capital';
+  const description = lang === 'es'
+    ? 'Explore nuestros programas de financiamiento: Préstamos SBA, Préstamos a Plazo, Financiamiento de Equipos y más para pequeñas empresas en Colorado y todo el país desde 2016.'
+    : 'Explore our financing programs: SBA Loans, Term Loans, Equipment Financing, and more for small businesses in Colorado and nationwide since 2016.';
+  
   return {
-    title: 'Business Financing Services - SBA Loans, Term Loans & More | Core Business Capital',
-    description: `Explore our programs: ${dict.services.sba}, ${dict.services.equipment}, ${dict.services.invoice}, and more for small businesses in Colorado and nationwide since 2016.`,
+    title,
+    description,
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: `${baseUrl}/${lang}/services`,
@@ -31,12 +37,26 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title: 'Business Financing Services - SBA Loans, Term Loans & More | Core Business Capital',
-      description: `Explore our programs for small businesses in Colorado and nationwide since 2016.`,
+      title,
+      description,
       url: `${baseUrl}/${lang}/services`,
       siteName: 'Core Business Capital',
       type: 'website',
       locale: lang === 'es' ? 'es_US' : 'en_US',
+      images: [
+        {
+          url: `${baseUrl}/images/hero-bg.jpg`,
+          width: 1200,
+          height: 630,
+          alt: 'Core Business Capital - Business Financing Services',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`${baseUrl}/images/hero-bg.jpg`],
     },
     robots: {
       index: true,

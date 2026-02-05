@@ -22,9 +22,15 @@ export async function generateMetadata({
     description: isEnglish
       ? 'Calculate your estimated monthly payments for a 10-year SBA loan. Free SBA loan calculator with real-time amortization calculations. Current rates: Prime + 2.5%.'
       : 'Calcule sus pagos mensuales estimados para un préstamo SBA de 10 años. Calculadora gratuita de préstamos SBA con cálculos de amortización en tiempo real. Tasas actuales: Prime + 2.5%.',
-    keywords: isEnglish
-      ? 'SBA loan calculator, SBA 7a calculator, small business loan calculator, SBA payment calculator, business loan estimator'
-      : 'calculadora de préstamos SBA, calculadora SBA 7a, calculadora de préstamos para pequeñas empresas, calculadora de pagos SBA',
+    metadataBase: new URL('https://corebusinesscapital.com'),
+    alternates: {
+      canonical: `https://corebusinesscapital.com/${lang}/sba-calculator`,
+      languages: {
+        'en': 'https://corebusinesscapital.com/en/sba-calculator',
+        'es': 'https://corebusinesscapital.com/es/sba-calculator',
+        'x-default': 'https://corebusinesscapital.com/en/sba-calculator',
+      },
+    },
     openGraph: {
       title: isEnglish
         ? 'SBA Loan Calculator | Core Business Capital'
@@ -34,8 +40,30 @@ export async function generateMetadata({
         : 'Calcule sus pagos mensuales estimados para un préstamo SBA de 10 años con nuestra calculadora gratuita.',
       url: `https://corebusinesscapital.com/${lang}/sba-calculator`,
       siteName: 'Core Business Capital',
-      locale: lang,
+      locale: lang === 'es' ? 'es_US' : 'en_US',
       type: 'website',
+      images: [
+        {
+          url: 'https://corebusinesscapital.com/images/hero-bg.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'SBA Loan Calculator - Core Business Capital',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: isEnglish
+        ? 'SBA Loan Calculator | Core Business Capital'
+        : 'Calculadora de Préstamos SBA | Core Business Capital',
+      description: isEnglish
+        ? 'Calculate your estimated monthly payments for a 10-year SBA loan with our free calculator.'
+        : 'Calcule sus pagos mensuales estimados para un préstamo SBA de 10 años con nuestra calculadora gratuita.',
+      images: ['https://corebusinesscapital.com/images/hero-bg.jpg'],
+    },
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
