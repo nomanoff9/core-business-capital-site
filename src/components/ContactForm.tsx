@@ -62,6 +62,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
           id="name"
           name="name"
           required
+          maxLength={100}
           value={formData.name}
           onChange={handleChange}
           className="w-full px-4 py-3 rounded-lg border border-[#d48125]/30 focus:border-[#d48125] focus:ring-2 focus:ring-[#d48125]/20 outline-none transition-all bg-white text-[#3d1e08] placeholder-[#5a3921]/50"
@@ -79,6 +80,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
           id="email"
           name="email"
           required
+          maxLength={254}
           value={formData.email}
           onChange={handleChange}
           className="w-full px-4 py-3 rounded-lg border border-[#d48125]/30 focus:border-[#d48125] focus:ring-2 focus:ring-[#d48125]/20 outline-none transition-all bg-white text-[#3d1e08] placeholder-[#5a3921]/50"
@@ -96,6 +98,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
           id="phone"
           name="phone"
           required
+          maxLength={20}
           value={formData.phone}
           onChange={handleChange}
           className="w-full px-4 py-3 rounded-lg border border-[#d48125]/30 focus:border-[#d48125] focus:ring-2 focus:ring-[#d48125]/20 outline-none transition-all bg-white text-[#3d1e08] placeholder-[#5a3921]/50"
@@ -112,6 +115,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
           id="message"
           name="message"
           rows={4}
+          maxLength={2000}
           value={formData.message}
           onChange={handleChange}
           className="w-full px-4 py-3 rounded-lg border border-[#d48125]/30 focus:border-[#d48125] focus:ring-2 focus:ring-[#d48125]/20 outline-none transition-all bg-white text-[#3d1e08] placeholder-[#5a3921]/50 resize-none"

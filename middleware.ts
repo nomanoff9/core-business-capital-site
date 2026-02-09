@@ -5,6 +5,30 @@ import Negotiator from 'negotiator';
 const locales = ['en', 'es'];
 const defaultLocale = 'en';
 
+// Security headers to add to all responses
+const securityHeaders = {
+  'X-DNS-Prefetch-Control': 'on',
+  'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
+  'X-Frame-Options': 'SAMEORIGIN',
+  'X-Content-Type-Options': 'nosniff',
+  'X-XSS-Protection': '1; mode=block',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  'Content-Security-Policy': [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "img-src 'self' data: https: blob:",
+    "font-src 'self' https://fonts.gstatic.com",
+    "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com",
+    "frame-src 'self' https://www.google.com",
+    "frame-ancestors 'self'",
+    "form-action 'self'",
+    "base-uri 'self'",
+    "object-src 'none'",
+  ].join('; '),
+};
+
 // Map of old URLs to new URLs (from Tag Manager report - untagged legacy URLs)
 // These are crawled/accessed but don't have GTM tags - redirect to tagged equivalents
 const permanentRedirects: Record<string, string> = {
@@ -59,33 +83,47 @@ function getLocale(request: NextRequest): string {
   return match(languages, locales, defaultLocale);
 }
 
+// Helper to add security headers to a response
+function addSecurityHeaders(response: NextResponse): NextResponse {
+  Object.entries(securityHeaders).forEach(([key, value]) => {
+    response.headers.set(key, value);
+  });
+  return response;
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
   // Handle permanent redirects (301) for old URLs
   if (permanentRedirects[pathname]) {
-    return NextResponse.redirect(
+    const response = NextResponse.redirect(
       new URL(permanentRedirects[pathname], request.url),
       { status: 301 }
     );
+    return addSecurityHeaders(response);
   }
   
   // Handle root path explicitly
   if (pathname === '/') {
     request.nextUrl.pathname = '/en';
-    return NextResponse.redirect(request.nextUrl, { status: 308 });
+    const response = NextResponse.redirect(request.nextUrl, { status: 308 });
+    return addSecurityHeaders(response);
   }
   
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  if (pathnameHasLocale) return NextResponse.next();
+  if (pathnameHasLocale) {
+    const response = NextResponse.next();
+    return addSecurityHeaders(response);
+  }
 
   // Redirect to default locale for all other paths
   const locale = defaultLocale;
   request.nextUrl.pathname = `/${locale}${pathname}`;
-  return NextResponse.redirect(request.nextUrl, { status: 308 });
+  const response = NextResponse.redirect(request.nextUrl, { status: 308 });
+  return addSecurityHeaders(response);
 }
 
 export const config = {

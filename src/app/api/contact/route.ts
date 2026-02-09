@@ -2,6 +2,14 @@ import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import nodemailer from 'nodemailer';
+import { 
+  escapeHtml, 
+  checkRateLimit, 
+  validateInputLength, 
+  sanitizePhone,
+  getClientIp,
+  INPUT_LIMITS 
+} from '@/lib/security';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -21,7 +29,7 @@ interface ContactFormData {
   message?: string;
 }
 
-// Email HTML templates
+// Email HTML templates - all user inputs are escaped to prevent XSS
 const getNotificationEmailHtml = (name: string, email: string, phone: string, message?: string) => `
   <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
     <div style="background: linear-gradient(to right, #4d2508, #3d1e08); padding: 20px; text-align: center;">
@@ -32,24 +40,24 @@ const getNotificationEmailHtml = (name: string, email: string, phone: string, me
       <table style="width: 100%; border-collapse: collapse;">
         <tr>
           <td style="padding: 10px 0; border-bottom: 1px solid #e8ddd1; font-weight: bold; color: #5a3921; width: 120px;">Name:</td>
-          <td style="padding: 10px 0; border-bottom: 1px solid #e8ddd1; color: #3d1e08;">${name}</td>
+          <td style="padding: 10px 0; border-bottom: 1px solid #e8ddd1; color: #3d1e08;">${escapeHtml(name)}</td>
         </tr>
         <tr>
           <td style="padding: 10px 0; border-bottom: 1px solid #e8ddd1; font-weight: bold; color: #5a3921;">Email:</td>
           <td style="padding: 10px 0; border-bottom: 1px solid #e8ddd1; color: #3d1e08;">
-            <a href="mailto:${email}" style="color: #d48125;">${email}</a>
+            <a href="mailto:${escapeHtml(email)}" style="color: #d48125;">${escapeHtml(email)}</a>
           </td>
         </tr>
         <tr>
           <td style="padding: 10px 0; border-bottom: 1px solid #e8ddd1; font-weight: bold; color: #5a3921;">Phone:</td>
           <td style="padding: 10px 0; border-bottom: 1px solid #e8ddd1; color: #3d1e08;">
-            <a href="tel:${phone}" style="color: #d48125;">${phone}</a>
+            <a href="tel:${escapeHtml(phone)}" style="color: #d48125;">${escapeHtml(phone)}</a>
           </td>
         </tr>
         ${message ? `
         <tr>
           <td style="padding: 10px 0; font-weight: bold; color: #5a3921; vertical-align: top;">Message:</td>
-          <td style="padding: 10px 0; color: #3d1e08;">${message.replace(/\n/g, '<br>')}</td>
+          <td style="padding: 10px 0; color: #3d1e08;">${escapeHtml(message).replace(/\n/g, '<br>')}</td>
         </tr>
         ` : ''}
       </table>
@@ -69,7 +77,7 @@ const getConfirmationEmailHtml = (name: string) => `
     </div>
     <div style="padding: 30px; background-color: #fdf6ef;">
       <p style="color: #3d1e08; font-size: 16px; line-height: 1.6;">
-        Dear ${name},
+        Dear ${escapeHtml(name)},
       </p>
       <p style="color: #3d1e08; font-size: 16px; line-height: 1.6;">
         Thank you for contacting Core Business Capital. We have received your message and will get back to you within 24 hours.
@@ -106,6 +114,15 @@ async function sendViaGmail(to: string, subject: string, html: string, replyTo?:
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting check
+    const clientIp = getClientIp(request);
+    if (!checkRateLimit(clientIp)) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again in a few minutes.' },
+        { status: 429 }
+      );
+    }
+
     const body: ContactFormData = await request.json();
     const { name, email, phone, message } = body;
 
@@ -116,6 +133,31 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    // Validate input lengths
+    const lengthErrors: string[] = [];
+    if (!validateInputLength(name, INPUT_LIMITS.name)) {
+      lengthErrors.push(`Name must be between ${INPUT_LIMITS.name.min} and ${INPUT_LIMITS.name.max} characters`);
+    }
+    if (!validateInputLength(email, INPUT_LIMITS.email)) {
+      lengthErrors.push(`Email must be less than ${INPUT_LIMITS.email.max} characters`);
+    }
+    if (!validateInputLength(phone, INPUT_LIMITS.phone)) {
+      lengthErrors.push(`Phone must be less than ${INPUT_LIMITS.phone.max} characters`);
+    }
+    if (message && !validateInputLength(message, INPUT_LIMITS.message)) {
+      lengthErrors.push(`Message must be less than ${INPUT_LIMITS.message.max} characters`);
+    }
+    
+    if (lengthErrors.length > 0) {
+      return NextResponse.json(
+        { error: lengthErrors.join('. ') },
+        { status: 400 }
+      );
+    }
+
+    // Sanitize phone number
+    const sanitizedPhone = sanitizePhone(phone);
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -133,29 +175,34 @@ export async function POST(request: NextRequest) {
       const collection = db.collection('contact_submissions');
       
       const submission = {
-        name,
-        email,
-        phone,
-        message: message || '',
+        name: name.trim(),
+        email: email.trim().toLowerCase(),
+        phone: sanitizedPhone,
+        message: message?.trim() || '',
         createdAt: new Date(),
         source: 'website_contact_form',
         emailSent: false,
         confirmationSent: false,
-        emailProvider: '',
       };
       
       const result = await collection.insertOne(submission);
       savedSubmission = { ...submission, _id: result.insertedId };
-      console.log('Contact submission saved to MongoDB:', result.insertedId);
+      // Use structured logging without exposing sensitive data
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Contact submission saved to MongoDB:', result.insertedId);
+      }
     } catch (dbError) {
-      console.error('MongoDB error:', dbError);
+      // Log error without exposing details in production
+      if (process.env.NODE_ENV === 'development') {
+        console.error('MongoDB error:', dbError);
+      }
       // Continue even if DB fails - we still want to try sending the email
     }
 
     // Send notification email to Core Business Capital
     let emailSent = false;
     let emailProvider = '';
-    const notificationHtml = getNotificationEmailHtml(name, email, phone, message);
+    const notificationHtml = getNotificationEmailHtml(name, email, sanitizedPhone, message);
     
     // Try Resend first (primary)
     try {
@@ -163,34 +210,44 @@ export async function POST(request: NextRequest) {
         from: 'Core Business Capital <noreply@corebusinesscapital.com>',
         to: ['info@corebusinesscapital.com'],
         replyTo: email,
-        subject: `New Contact Form Submission from ${name}`,
+        subject: `New Contact Form Submission from ${escapeHtml(name)}`,
         html: notificationHtml,
       });
 
       if (error) {
-        console.error('Resend error (notification):', JSON.stringify(error, null, 2));
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Resend error (notification):', JSON.stringify(error, null, 2));
+        }
         throw new Error('Resend failed');
       } else {
         emailSent = true;
         emailProvider = 'resend';
-        console.log('Notification email sent via Resend:', data?.id);
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Notification email sent via Resend:', data?.id);
+        }
       }
     } catch (resendError) {
-      console.error('Resend failed, trying Gmail SMTP fallback:', resendError);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Resend failed, trying Gmail SMTP fallback:', resendError);
+      }
       
       // Fallback to Gmail SMTP
       try {
         await sendViaGmail(
           'info@corebusinesscapital.com',
-          `New Contact Form Submission from ${name}`,
+          `New Contact Form Submission from ${escapeHtml(name)}`,
           notificationHtml,
           email
         );
         emailSent = true;
         emailProvider = 'gmail';
-        console.log('Notification email sent via Gmail SMTP');
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Notification email sent via Gmail SMTP');
+        }
       } catch (gmailError) {
-        console.error('Gmail SMTP also failed:', gmailError);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Gmail SMTP also failed:', gmailError);
+        }
       }
     }
 
@@ -208,14 +265,20 @@ export async function POST(request: NextRequest) {
       });
 
       if (error) {
-        console.error('Resend error (confirmation):', JSON.stringify(error, null, 2));
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Resend error (confirmation):', JSON.stringify(error, null, 2));
+        }
         throw new Error('Resend failed');
       } else {
         confirmationSent = true;
-        console.log('Confirmation email sent via Resend:', data?.id);
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Confirmation email sent via Resend:', data?.id);
+        }
       }
     } catch (resendError) {
-      console.error('Resend failed for confirmation, trying Gmail SMTP:', resendError);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Resend failed for confirmation, trying Gmail SMTP:', resendError);
+      }
       
       // Fallback to Gmail SMTP
       try {
@@ -225,9 +288,13 @@ export async function POST(request: NextRequest) {
           confirmationHtml
         );
         confirmationSent = true;
-        console.log('Confirmation email sent via Gmail SMTP');
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Confirmation email sent via Gmail SMTP');
+        }
       } catch (gmailError) {
-        console.error('Gmail SMTP also failed for confirmation:', gmailError);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Gmail SMTP also failed for confirmation:', gmailError);
+        }
       }
     }
 
@@ -238,21 +305,21 @@ export async function POST(request: NextRequest) {
         const collection = db.collection('contact_submissions');
         await collection.updateOne(
           { _id: savedSubmission._id },
-          { $set: { emailSent, confirmationSent, emailProvider } }
+          { $set: { emailSent, confirmationSent } }
         );
       } catch (updateError) {
-        console.error('MongoDB update error:', updateError);
+        if (process.env.NODE_ENV === 'development') {
+          console.error('MongoDB update error:', updateError);
+        }
       }
     }
 
     // Return success if either DB save or email worked
+    // Don't expose internal details like emailProvider to client
     if (savedSubmission || emailSent) {
       return NextResponse.json({ 
         success: true,
-        savedToDb: !!savedSubmission,
-        emailSent,
-        confirmationSent,
-        emailProvider,
+        message: 'Thank you for your message. We will get back to you soon!',
       });
     }
 
@@ -262,7 +329,9 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   } catch (error) {
-    console.error('Contact form error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Contact form error:', error);
+    }
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
