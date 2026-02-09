@@ -11,14 +11,13 @@ const securityHeaders = {
   'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
   'X-Frame-Options': 'SAMEORIGIN',
   'X-Content-Type-Options': 'nosniff',
-  'X-XSS-Protection': '1; mode=block',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()',
   'Content-Security-Policy': [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com",
+    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-    "img-src 'self' data: https: blob:",
+    "img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com https://corebusinesscapital.com blob:",
     "font-src 'self' https://fonts.gstatic.com",
     "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com",
     "frame-src 'self' https://www.google.com",
@@ -93,6 +92,12 @@ function addSecurityHeaders(response: NextResponse): NextResponse {
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // API routes — apply security headers but skip locale handling
+  if (pathname.startsWith('/api')) {
+    const response = NextResponse.next();
+    return addSecurityHeaders(response);
+  }
   
   // Handle permanent redirects (301) for old URLs
   if (permanentRedirects[pathname]) {
@@ -128,6 +133,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!_next|_vercel|api|.*\\..*).*)',
+    '/((?!_next|_vercel|.*\\..*).*)',
   ],
 };

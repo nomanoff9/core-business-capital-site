@@ -8,7 +8,6 @@ import {
   validateInputLength, 
   sanitizePhone,
   getClientIp,
-  INPUT_LIMITS 
 } from '@/lib/security';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -27,6 +26,7 @@ interface ContactFormData {
   email: string;
   phone: string;
   message?: string;
+  website?: string; // Honeypot field — should always be empty
 }
 
 // Email HTML templates - all user inputs are escaped to prevent XSS
@@ -114,12 +114,37 @@ async function sendViaGmail(to: string, subject: string, html: string, replyTo?:
 
 export async function POST(request: NextRequest) {
   try {
+    // CSRF protection — validate origin
+    const origin = request.headers.get('origin');
+    const allowedOrigins = [
+      'https://corebusinesscapital.com',
+      'https://www.corebusinesscapital.com',
+      process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '',
+    ].filter(Boolean);
+
+    if (origin && !allowedOrigins.includes(origin)) {
+      return NextResponse.json(
+        { error: 'Forbidden' },
+        { status: 403 }
+      );
+    }
+
     // Rate limiting check
     const clientIp = getClientIp(request);
-    if (!checkRateLimit(clientIp)) {
+    const rateLimit = checkRateLimit(clientIp);
+    if (!rateLimit.success) {
       return NextResponse.json(
         { error: 'Too many requests. Please try again in a few minutes.' },
-        { status: 429 }
+        { status: 429, headers: { 'Retry-After': String(rateLimit.resetIn) } }
+      );
+    }
+
+    // Enforce request body size limit (16KB max)
+    const contentLength = request.headers.get('content-length');
+    if (contentLength && parseInt(contentLength) > 16384) {
+      return NextResponse.json(
+        { error: 'Request body too large' },
+        { status: 413 }
       );
     }
 
@@ -134,19 +159,31 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Honeypot check — if hidden field is filled, it's a bot
+    if (body.website) {
+      // Silently reject but return success to not tip off bots
+      return NextResponse.json({ success: true, message: 'Thank you for your message. We will get back to you soon!' });
+    }
+
     // Validate input lengths
     const lengthErrors: string[] = [];
-    if (!validateInputLength(name, INPUT_LIMITS.name)) {
-      lengthErrors.push(`Name must be between ${INPUT_LIMITS.name.min} and ${INPUT_LIMITS.name.max} characters`);
+    const nameCheck = validateInputLength(name, 'name');
+    if (!nameCheck.valid) {
+      lengthErrors.push(nameCheck.error!);
     }
-    if (!validateInputLength(email, INPUT_LIMITS.email)) {
-      lengthErrors.push(`Email must be less than ${INPUT_LIMITS.email.max} characters`);
+    const emailCheck = validateInputLength(email, 'email');
+    if (!emailCheck.valid) {
+      lengthErrors.push(emailCheck.error!);
     }
-    if (!validateInputLength(phone, INPUT_LIMITS.phone)) {
-      lengthErrors.push(`Phone must be less than ${INPUT_LIMITS.phone.max} characters`);
+    const phoneCheck = validateInputLength(phone, 'phone');
+    if (!phoneCheck.valid) {
+      lengthErrors.push(phoneCheck.error!);
     }
-    if (message && !validateInputLength(message, INPUT_LIMITS.message)) {
-      lengthErrors.push(`Message must be less than ${INPUT_LIMITS.message.max} characters`);
+    if (message) {
+      const msgCheck = validateInputLength(message, 'message');
+      if (!msgCheck.valid) {
+        lengthErrors.push(msgCheck.error!);
+      }
     }
     
     if (lengthErrors.length > 0) {

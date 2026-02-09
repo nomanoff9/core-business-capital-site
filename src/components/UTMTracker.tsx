@@ -92,8 +92,12 @@ export default function UTMTracker() {
 export function getStoredUTMParams(): Record<string, string> | null {
   if (typeof window === 'undefined') return null;
   
-  const stored = sessionStorage.getItem('utm_params');
-  return stored ? JSON.parse(stored) : null;
+  try {
+    const stored = sessionStorage.getItem('utm_params');
+    return stored ? JSON.parse(stored) : null;
+  } catch {
+    return null;
+  }
 }
 
 /**

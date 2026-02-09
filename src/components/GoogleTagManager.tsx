@@ -3,6 +3,14 @@
 import Script from 'next/script';
 
 export default function GoogleTagManager({ gtmId }: { gtmId: string }) {
+  // Validate GTM ID format to prevent script injection
+  if (!/^GTM-[A-Z0-9]+$/.test(gtmId)) {
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Invalid GTM ID format:', gtmId);
+    }
+    return null;
+  }
+
   return (
     <>
       {/* Google Tag Manager Script - lazyOnload to improve LCP */}

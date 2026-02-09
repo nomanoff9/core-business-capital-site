@@ -13,6 +13,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
     email: '',
     phone: '',
     message: '',
+    website: '', // Honeypot field — invisible to real users, bots will fill it
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -41,7 +42,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
       }
       
       // Reset form on success
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '', website: '' });
       setSubmitStatus('success');
     } catch {
       setSubmitStatus('error');
@@ -52,6 +53,20 @@ export default function ContactForm({ dict }: ContactFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Honeypot field — hidden from real users, bots will auto-fill it */}
+      <div className="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          type="text"
+          id="website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={formData.website}
+          onChange={handleChange}
+        />
+      </div>
+
       {/* Name Field */}
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-[#3d1e08] mb-2">

@@ -31,7 +31,12 @@ async function connectToDatabase(): Promise<{ client: MongoClient; db: Db }> {
   }
 
   if (!cached.promise) {
-    const options = {};
+    const options = {
+      tls: true,
+      serverSelectionTimeoutMS: 5000,
+      connectTimeoutMS: 10000,
+      maxPoolSize: 10,
+    };
     cached.promise = MongoClient.connect(MONGODB_URI!, options);
   }
 
