@@ -137,11 +137,19 @@ export default async function Home({
     ]
   };
 
-  // Review Schema with sample reviews
+  // Review Schema with sample reviews and required aggregateRating
   const reviewSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Core Business Capital",
+    "url": "https://corebusinesscapital.com",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "50",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "review": [
       {
         "@type": "Review",

@@ -17,30 +17,7 @@ const Banner = memo(function Banner({ dict }: BannerProps) {
       aria-label="Trust indicators and certifications"
     >
       
-      {/* Structured Data for Trust Signals */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Core Business Capital",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "5.0",
-              "bestRating": "5",
-              "ratingCount": "50"
-            },
-            "accreditation": [
-              {
-                "@type": "Organization",
-                "name": "Better Business Bureau",
-                "url": "https://www.bbb.org/"
-              }
-            ]
-          })
-        }}
-      />
+      {/* Trust signals structured data is now consolidated in the page-level schema */}
       
       {/* Horizontal Layout: All Screen Sizes */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
