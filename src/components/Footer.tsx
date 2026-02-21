@@ -70,6 +70,14 @@ export default function Footer({ dict, lang = 'en' }: FooterProps) {
                 {dict.footer.pfsCopilot}
               </a>
             </li>
+            <li>
+              <Link
+                href={`/${lang}/insights`}
+                className="hover:text-[#8b5a00] transition-colors duration-200"
+              >
+                {dict.footer.insightsLink}
+              </Link>
+            </li>
           </ul>
         </div>
 

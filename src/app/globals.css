@@ -57,17 +57,8 @@ h1 {
 }
 
 body {
-  color: #fff !important;
-  background-color: #3d1e08; /* Match hero bg to avoid contrast issues */
-  
-}body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: #1a1a1a;
+  background-color: #ffffff;
 }
 
 @media print {

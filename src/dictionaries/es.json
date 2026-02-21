@@ -96,6 +96,8 @@
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio",
     "servicesTitle": "Servicios",
+    "insightsTitle": "Perspectivas",
+    "insightsLink": "Perspectivas Empresariales",
     "sbaAssistanceTitle": "Asistencia SBA",
     "sbaCalculator": "Calculadora SBA",
     "pfsCopilot": "Copiloto EFP",
@@ -105,9 +107,22 @@
     "callLink": "Llamar (720) 222-3396",
     "followUs": "Síguenos"
   },
+  "insights": {
+    "pageTitle": "Perspectivas y Noticias Empresariales",
+    "pageSubtitle": "Manténgase informado con las últimas actualizaciones sobre financiamiento para pequeñas empresas, estrategias fiscales y oportunidades de financiamiento.",
+    "readMore": "Leer Más",
+    "backToInsights": "← Volver a Perspectivas",
+    "minuteRead": "min de lectura",
+    "publishedOn": "Publicado",
+    "noArticles": "Aún no hay artículos disponibles. ¡Vuelva pronto!",
+    "ctaTitle": "¿Listo para Poner Este Conocimiento en Práctica?",
+    "ctaDesc": "Nuestro equipo puede ayudarle a aprovechar las últimas estrategias de financiamiento para su negocio. Aplique hoy para una consulta gratuita.",
+    "ctaButton": "Aplicar Ahora"
+  },
   "nav": {
     "home": "Inicio",
     "services": "Servicios",
+    "insights": "Perspectivas",
     "pfsCopilot": "Copiloto EFP",
     "sbaCalculator": "Calculadora SBA",
     "apply": "Aplicar Ahora"

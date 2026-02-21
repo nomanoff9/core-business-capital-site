@@ -100,6 +100,8 @@ export type Dict = {
     sbaAssistanceTitle: string;
     sbaCalculator: string;
     pfsCopilot: string;
+    insightsTitle: string;
+    insightsLink: string;
     contactTitle: string;
     contactLink: string;
     emailLink: string;
@@ -109,9 +111,22 @@ export type Dict = {
   nav: {
     home: string;
     services: string;
+    insights: string;
     pfsCopilot: string;
     sbaCalculator: string;
     apply: string;
+  };
+  insights: {
+    pageTitle: string;
+    pageSubtitle: string;
+    readMore: string;
+    backToInsights: string;
+    minuteRead: string;
+    publishedOn: string;
+    noArticles: string;
+    ctaTitle: string;
+    ctaDesc: string;
+    ctaButton: string;
   };
   sbaCalculator: {
     title: string;

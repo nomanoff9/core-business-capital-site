@@ -35,6 +35,7 @@ export default function Header() {
         home: 'Home',
         services: 'Services',
         sbaCalculator: 'SBA Calculator',
+        insights: 'Insights',
         pfsCopilot: 'PFS Copilot',
         apply: 'Apply Now'
       },
@@ -42,6 +43,7 @@ export default function Header() {
         home: 'Inicio',
         services: 'Servicios',
         sbaCalculator: 'Calculadora SBA',
+        insights: 'Perspectivas',
         pfsCopilot: 'Copiloto EFP',
         apply: 'Aplicar Ahora'
       }
@@ -91,7 +93,7 @@ export default function Header() {
   return (
     <header className="w-full bg-white transition-colors duration-200" role="banner">
       {/* Language Toggle Above Nav */}
-      <div className="w-full flex justify-end items-center px-4 py-4 bg-white border-b border-gray-100">
+      <div className="w-full flex justify-end items-center px-4 py-4 bg-white">
         <div className="flex items-center gap-3 bg-gray-50 rounded-full shadow-lg p-1.5 border border-gray-200">
           <button
             onClick={() => switchLang('en')}
@@ -119,7 +121,7 @@ export default function Header() {
           </button>
         </div>
       </div>
-      <nav className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50 transition-all duration-200" role="navigation" aria-label="Main navigation">
+      <nav className="bg-white shadow-sm sticky top-0 z-50 transition-all duration-200" role="navigation" aria-label="Main navigation">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 min-[480px]:h-16 sm:h-20">
             {/* Brand Logo Left */}
@@ -175,6 +177,7 @@ export default function Header() {
               </div>
 
               <Link href={`/${currentLocale}/sba-calculator`} className={navLinkStyles}>{getNavText('sbaCalculator')}</Link>
+              <Link href={`/${currentLocale}/insights`} className={navLinkStyles}>{getNavText('insights')}</Link>
 
               <a 
                 href="https://pfs.corebusinesscapital.com" 
@@ -253,6 +256,14 @@ export default function Header() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {getNavText('sbaCalculator')}
+              </Link>
+              <Link 
+                href={`/${currentLocale}/insights`} 
+                className={mobileNavLinkStyles} 
+                role="menuitem" 
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {getNavText('insights')}
               </Link>
               <a 
                 href="https://pfs.corebusinesscapital.com" 

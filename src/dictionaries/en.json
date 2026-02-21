@@ -99,6 +99,8 @@
     "sbaAssistanceTitle": "SBA Assistance",
     "sbaCalculator": "SBA Calculator",
     "pfsCopilot": "PFS Copilot",
+    "insightsTitle": "Insights",
+    "insightsLink": "Business Insights",
     "contactTitle": "Contact & Social",
     "contactLink": "Contact Us",
     "emailLink": "Email",
@@ -108,9 +110,22 @@
   "nav": {
     "home": "Home",
     "services": "Services",
+    "insights": "Insights",
     "pfsCopilot": "PFS Copilot",
     "sbaCalculator": "SBA Calculator",
     "apply": "Apply Now"
+  },
+  "insights": {
+    "pageTitle": "Business Insights & News",
+    "pageSubtitle": "Stay informed with the latest updates on small business financing, tax strategies, and funding opportunities.",
+    "readMore": "Read More",
+    "backToInsights": "← Back to Insights",
+    "minuteRead": "min read",
+    "publishedOn": "Published",
+    "noArticles": "No articles available yet. Check back soon!",
+    "ctaTitle": "Ready to Put This Knowledge to Work?",
+    "ctaDesc": "Our team can help you leverage the latest financing strategies for your business. Apply today for a free consultation.",
+    "ctaButton": "Apply Now"
   },
   "sbaCalculator": {
     "title": "U.S. SBA Loan Calculator",
