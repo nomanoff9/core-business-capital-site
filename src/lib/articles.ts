@@ -28,8 +28,8 @@ export const articles: Article[] = [
       es: 'La "Gran Hermosa Ley": La Depreciación Adicional del 100% y Qué Significa para Usted',
     },
     excerpt: {
-      en: 'The One Big Beautiful Bill Act (OBBBA), signed July 4, 2025, permanently restores 100% bonus depreciation for most business assets. Here\'s what every business owner needs to know.',
-      es: 'La Ley "One Big Beautiful Bill" (OBBBA), promulgada el 4 de julio de 2025, restaura permanentemente la depreciación adicional del 100% para la mayoría de los activos empresariales. Esto es lo que todo empresario necesita saber.',
+      en: '100% bonus depreciation is permanently restored — meaning you can immediately deduct the full cost of eligible business assets in year one. Here\'s what every business owner needs to know.',
+      es: 'La depreciación adicional del 100% se ha restaurado de forma permanente, lo que significa que puede deducir de inmediato el costo total de los activos empresariales elegibles en el primer año. Esto es lo que todo empresario necesita saber.',
     },
     content: {
       en: [
