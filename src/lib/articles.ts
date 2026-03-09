@@ -35,10 +35,6 @@ export const articles: Article[] = [
       en: [
         {
           type: 'paragraph',
-          text: 'The "Big Beautiful Bill" (formally the One Big Beautiful Bill Act, or OBBBA, signed into law on July 4, 2025) permanently restores and locks in 100% bonus depreciation (additional first-year depreciation under IRC Section 168(k)) for most qualifying business assets acquired and placed in service after January 19, 2025.',
-        },
-        {
-          type: 'paragraph',
           text: 'This is a major win for business owners because it lets you immediately deduct the full cost of eligible investments in the year you place them in service, instead of spreading deductions over 5–39 years via regular MACRS depreciation. It dramatically accelerates tax savings, improves cash flow (you can often finance purchases and still deduct 100% right away), reduces current-year taxable income, and makes large capital investments far more attractive. It applies to both new and certain used property, with no overall dollar cap (unlike Section 179).',
         },
         {
