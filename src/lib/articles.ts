@@ -232,7 +232,7 @@ export const articles: Article[] = [
     date: '2026-03-17',
     category: 'Tax & Financing',
     readingTime: 6,
-    thumbnail: '/images/taxes thumbnail.jpg',
+    thumbnail: '/images/taxes-thumbnail.jpg',
     title: {
       en: 'Filing Your Taxes When Applying for a Business Loan: Top 3 Reasons Great Businesses Don\'t Qualify for Large SBA Loans',
       es: 'Cómo Declarar Sus Impuestos al Solicitar un Préstamo Empresarial: Las 3 Principales Razones por las que Grandes Empresas No Califican para Préstamos SBA Grandes',
